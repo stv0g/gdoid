@@ -1,0 +1,6 @@
+#!/bin/sh
+# $Id: START_CLIENT,v 1.1.2.1 2011/12/12 23:49:35 bew Exp $
+# $Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/samples/iec90-5/Attic/START_CLIENT,v $
+
+DIR=../..
+${DIR}/src/gdoid -d -n -DA=99 -f/tmp/isakmpd.fifo -cgdoi_client.conf

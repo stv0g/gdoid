@@ -1,0 +1,135 @@
+# $Id: gdoi_fld.fld,v 1.6.2.1 2011/10/18 03:26:55 bew Exp $
+# $Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/src/gdoi_fld.fld,v $
+
+# 
+# The license applies to all software incorporated in the "Cisco GDOI reference
+# implementation" except for those portions incorporating third party software 
+# specifically identified as being licensed under separate license. 
+#  
+#  
+# The Cisco Systems Public Software License, Version 1.0 
+# Copyright (c) 2001-2011 Cisco Systems, Inc. All rights reserved.
+# Subject to the following terms and conditions, Cisco Systems, Inc., 
+# hereby grants you a worldwide, royalty-free, nonexclusive, license, 
+# subject to third party intellectual property claims, to create 
+# derivative works of the Licensed Code and to reproduce, display, 
+# perform, sublicense, distribute such Licensed Code and derivative works. 
+# All rights not expressly granted herein are reserved. 
+# 1.      Redistributions of source code must retain the above 
+# copyright notice, this list of conditions and the following 
+# disclaimer.
+# 2.      Redistributions in binary form must reproduce the above 
+# copyright notice, this list of conditions and the following 
+# disclaimer in the documentation and/or other materials 
+# provided with the distribution.  
+# 3.      The names Cisco and "Cisco GDOI reference implementation" must not 
+# be used to endorse or promote products derived from this software without 
+# prior written permission. For written permission, please contact 
+# opensource@cisco.com.
+# 4.      Products derived from this software may not be called 
+# "Cisco" or "Cisco GDOI reference implementation", nor may "Cisco" or 
+# "Cisco GDOI reference implementation" appear in 
+# their name, without prior written permission of Cisco Systems, Inc.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED 
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+# PURPOSE, TITLE AND NON-INFRINGEMENT ARE DISCLAIMED. IN NO EVENT 
+# SHALL CISCO SYSTEMS, INC. OR ITS CONTRIBUTORS BE LIABLE FOR ANY 
+# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF 
+# THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF 
+# SUCH DAMAGE. THIS LIMITATION OF LIABILITY SHALL NOT APPLY TO 
+# LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM SUCH 
+# PARTY'S NEGLIGENCE TO THE EXTENT APPLICABLE LAW PROHIBITS SUCH 
+# LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR 
+# LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THAT 
+# EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU. FURTHER, YOU 
+# AGREE THAT IN NO EVENT WILL CISCO'S LIABILITY UNDER OR RELATED TO 
+# THIS AGREEMENT EXCEED AMOUNT FIVE THOUSAND DOLLARS (US) 
+# (US$5,000). 
+#  
+# ====================================================================
+# This software consists of voluntary contributions made by Cisco Systems, 
+# Inc. and many individuals on behalf of Cisco Systems, Inc. For more 
+# information on Cisco Systems, Inc., please see <http://www.cisco.com/>.
+#
+# This product includes software developed by Ericsson Radio Systems.
+#
+
+# Generic payload header.
+GDOI_GEN
+  NEXT_PAYLOAD		cst 1		isakmp_payload_cst
+  RESERVED		ign 1
+  LENGTH		num 2
+.
+
+# GDOI Security association payload.
+GDOI_SA : GDOI_GEN
+  DOI			num 4		group_doi_cst
+  SIT			raw 4
+  SA_ATTR_NEXT		num 2		isakmp_payload_cst
+  RES2    		ign 2
+.
+
+# GDOI's situation
+GDOI_SIT
+  SIT			mask 4		gdoi_sit_cst
+.
+
+# SA_KEK payload beginning fields
+GDOI_SA_KEK
+  PROTOCOL		num 1
+.
+
+# SA_KEK payload ending fields
+GDOI_SA_KEK_END
+  SPI			raw 16
+  RESERVED2		num 4
+  POP_KEYLEN		num 2
+.
+
+# SA_TEK payload beginning fields.
+GDOI_SA_TEK : GDOI_GEN
+  PROT_ID		num 1		gdoi_tek_prot_cst
+.
+
+GDOI_SA_TEK_ESP 
+  IP_PROT		num 1
+.
+
+# Identify part for part of the ESP protocol-specific payload for SA_TEK
+# Also used for the the ID part of the KEK payload
+GDOI_SA_ID
+  TYPE			num 1		ipsec_id_cst
+  PORT			num 2
+  DATA_LEN		num 1
+  DATA			raw
+.
+
+# GDOI SEQ payload.
+GDOI_SEQ : GDOI_GEN
+  SEQ_NUM		num 4
+.
+
+# GDOI GAP payload.
+GDOI_GAP : GDOI_GEN		 	gdoi_gap_fld
+  DATA			raw
+.
+
+# KD key packet
+GDOI_KD_PAK
+  KD_TYPE		cst 1		gdoi_kd_type_cst
+  RESERVED		ign 1
+  LENGTH		num 2
+  SPI_SIZE		num 1
+.
+
+# GDOI KD payload.
+GDOI_KD : GDOI_GEN
+  NUM_PACKETS		num 2
+  RES2    		ign 2
+.

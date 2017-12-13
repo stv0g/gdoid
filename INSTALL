@@ -1,0 +1,22 @@
+$Id: INSTALL,v 1.7.4.1 2011/12/05 20:26:53 bew Exp $
+$Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/INSTALL,v $
+
+			Compiling GDOI source
+			---------------------
+				10/17/11
+
+This package now uses a configure script for installation. Use the following
+steps to make gdoid:
+
+./configure
+make
+make install
+
+The following packages are required:
+
+Configure looks for OpenSSL in the typical places on the system, but if it 
+isn't found you will need to specify its location explicitely using:
+
+  --with-ssl-dir=PATH
+
+If you need to install OpenSSL, find it at http://www.openssl.org.

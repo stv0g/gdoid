@@ -1,0 +1,162 @@
+# $Id: gdoi_num.cst,v 1.10.2.3 2011/12/12 20:43:47 bew Exp $
+# $Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/src/gdoi_num.cst,v $
+
+# 
+# The license applies to all software incorporated in the "Cisco GDOI reference
+# implementation" except for those portions incorporating third party software 
+# specifically identified as being licensed under separate license. 
+#  
+#  
+# The Cisco Systems Public Software License, Version 1.0 
+# Copyright (c) 2001-2011 Cisco Systems, Inc. All rights reserved.
+# Subject to the following terms and conditions, Cisco Systems, Inc., 
+# hereby grants you a worldwide, royalty-free, nonexclusive, license, 
+# subject to third party intellectual property claims, to create 
+# derivative works of the Licensed Code and to reproduce, display, 
+# perform, sublicense, distribute such Licensed Code and derivative works. 
+# All rights not expressly granted herein are reserved. 
+# 1.      Redistributions of source code must retain the above 
+# copyright notice, this list of conditions and the following 
+# disclaimer.
+# 2.      Redistributions in binary form must reproduce the above 
+# copyright notice, this list of conditions and the following 
+# disclaimer in the documentation and/or other materials 
+# provided with the distribution.  
+# 3.      The names Cisco and "Cisco GDOI reference implementation" must not 
+# be used to endorse or promote products derived from this software without 
+# prior written permission. For written permission, please contact 
+# opensource@cisco.com.
+# 4.      Products derived from this software may not be called 
+# "Cisco" or "Cisco GDOI reference implementation", nor may "Cisco" or 
+# "Cisco GDOI reference implementation" appear in 
+# their name, without prior written permission of Cisco Systems, Inc.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED 
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+# PURPOSE, TITLE AND NON-INFRINGEMENT ARE DISCLAIMED. IN NO EVENT 
+# SHALL CISCO SYSTEMS, INC. OR ITS CONTRIBUTORS BE LIABLE FOR ANY 
+# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF 
+# THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF 
+# SUCH DAMAGE. THIS LIMITATION OF LIABILITY SHALL NOT APPLY TO 
+# LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM SUCH 
+# PARTY'S NEGLIGENCE TO THE EXTENT APPLICABLE LAW PROHIBITS SUCH 
+# LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR 
+# LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THAT 
+# EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU. FURTHER, YOU 
+# AGREE THAT IN NO EVENT WILL CISCO'S LIABILITY UNDER OR RELATED TO 
+# THIS AGREEMENT EXCEED AMOUNT FIVE THOUSAND DOLLARS (US) 
+# (US$5,000). 
+#  
+# ====================================================================
+# This software consists of voluntary contributions made by Cisco Systems, 
+# Inc. and many individuals on behalf of Cisco Systems, Inc. For more 
+# information on Cisco Systems, Inc., please see <http://www.cisco.com/>.
+#
+# This product includes software developed by Ericsson Radio Systems.
+#
+
+#
+# ISAKMP Group DOI numbers.
+#
+
+# GROUP DOI Identifier.
+GROUP_DOI
+  GDOI 2
+.
+
+# GDOI Situation Types
+GDOI_SIT
+  NO_SITUATION_DEFINED			0
+.
+
+# GDOI exchange types.
+GDOI_EXCH
+  PULL_MODE				32
+  PUSH_MODE				33
+.
+
+# GDOI KEK attributes
+GDOI_ATTR
+  KEK_MANAGEMENT_ALGORITHM		1
+  KEK_ALGORITHM				2
+  KEK_KEY_LENGTH			3
+  KEK_KEY_LIFETIME			4
+  SIG_HASH_ALGORITHM			5
+  SIG_ALGORITHM				6
+  SIG_KEY_LENGTH			7
+  KE_OAKLEY_GROUP			8
+.
+
+# GDOI KEK rekey encryption algorithms
+GDOI_KEK_ALG
+  DES				1
+  3DES				2
+  AES				3
+.
+
+# GDOI KEK rekey signature algorithms
+GDOI_KEK_SIG_ALG
+  RSA				1
+  DSS				2
+  ECDSS				3
+  ECDSA256			4
+  ECDSA384			5
+  ECDSA521			6
+.
+
+# GDOI KEK rekey signature hash algorithms
+GDOI_KEK_HASH_ALG
+  MD5				1
+  SHA				2
+  SHA256			3
+  SHA384			3
+  SHA512			3
+.
+
+# GDOI TEK Protocol-id types
+GDOI_TEK_PROT
+  RESERVED				0
+  PROTO_IPSEC_ESP			1
+  PROTO_IPSEC_AH			2
+  PROTO_SRTP				128
+  PROTO_IEC90_5				161
+.
+
+# GDOI GAP Attributes
+GDOI_GAP
+  ACTIVATION_TIME_DELAY			1
+  DEACTIVATION_TIME_DELAY		2
+  SENDER_ID_REQUEST			3
+.
+
+# GDOI KD Key packet types
+GDOI_KD_TYPE
+  TEK					1
+  KEK					2
+  LKH					3
+  SID					4
+.
+
+# TEK KD TEK Key Packet Attributes
+GDOI_ATTR_KD_TEK
+ SECRECY_KEY				1
+ INTEGRITY_KEY				2
+ SOURCE_AUTH_KEY			3
+.
+
+# TEK KD KEK Key Packet Attributes
+GDOI_ATTR_KD_KEK
+ SECRECY_KEY				1
+ SIGNATURE_KEY				2
+.
+
+# TEK SID Key Packet attributes
+GDOI_ATTR_KD_SID
+ NUM_BITS				1
+ VALUE					2
+.

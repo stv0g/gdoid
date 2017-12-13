@@ -1,0 +1,1110 @@
+$Id: sample_output_client1,v 1.3 2005/10/11 17:57:28 bew Exp $
+$Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/samples/three-clients/sample_output_client1,v $
+
+client-pc1# ./START_CLIENT1
+110303.376149 Default log_debug_cmd: log level changed from 0 to 99 for class 0
+110303.377006 Default log_debug_cmd: log level changed from 0 to 99 for class 1
+110303.377135 Default log_debug_cmd: log level changed from 0 to 99 for class 2
+110303.377261 Default log_debug_cmd: log level changed from 0 to 99 for class 3
+110303.377398 Default log_debug_cmd: log level changed from 0 to 99 for class 4
+110303.377524 Default log_debug_cmd: log level changed from 0 to 99 for class 5
+110303.377649 Default log_debug_cmd: log level changed from 0 to 99 for class 6
+110303.377774 Default log_debug_cmd: log level changed from 0 to 99 for class 7
+110303.377901 Default log_debug_cmd: log level changed from 0 to 99 for class 8
+110303.378026 Default log_debug_cmd: log level changed from 0 to 99 for class 9
+110303.379845 Misc 60 conf_get_str: configuration value not found [General]:Retransmits
+110303.380009 Misc 70 conf_set: [General]:Retransmits->5
+110303.380148 Misc 60 conf_get_str: configuration value not found [General]:Exchange-max-time
+110303.380293 Misc 70 conf_set: [General]:Exchange-max-time->120
+110303.380441 Misc 60 conf_get_str: configuration value not found [General]:Listen-on
+110303.380584 Misc 70 conf_set: [General]:Listen-on->10.0.224.37
+110303.380717 Misc 60 conf_get_str: configuration value not found [General]:check-interval
+110303.380862 Misc 70 conf_set: [General]:check-interval->60
+110303.380994 Misc 60 conf_get_str: configuration value not found [Phase 1]:10.0.224.44
+110303.381135 Misc 70 conf_set: [Phase 1]:10.0.224.44->GDOI-key-server
+110303.381267 Misc 60 conf_get_str: configuration value not found [Phase 2]:Connections
+110303.381421 Misc 70 conf_set: [Phase 2]:Connections->Group-1234
+110303.381552 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Phase
+110303.381696 Misc 70 conf_set: [GDOI-key-server]:Phase->1
+110303.381829 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Transport
+110303.381974 Misc 70 conf_set: [GDOI-key-server]:Transport->udp
+110303.382109 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Local-address
+110303.382256 Misc 70 conf_set: [GDOI-key-server]:Local-address->10.0.224.37
+110303.382405 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Address
+110303.382552 Misc 70 conf_set: [GDOI-key-server]:Address->10.0.224.44
+110303.382689 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Port
+110303.382836 Misc 70 conf_set: [GDOI-key-server]:Port->848
+110303.382970 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Configuration
+110303.383116 Misc 70 conf_set: [GDOI-key-server]:Configuration->Default-main-mode
+110303.383261 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Authentication
+110303.383419 Misc 70 conf_set: [GDOI-key-server]:Authentication->mekmitasdigoat
+110303.383552 Misc 60 conf_get_str: configuration value not found [Group-1234]:Phase
+110303.383695 Misc 70 conf_set: [Group-1234]:Phase->2
+110303.383828 Misc 60 conf_get_str: configuration value not found [Group-1234]:ISAKMP-peer
+110303.383972 Misc 70 conf_set: [Group-1234]:ISAKMP-peer->GDOI-key-server
+110303.384105 Misc 60 conf_get_str: configuration value not found [Group-1234]:Configuration
+110303.384250 Misc 70 conf_set: [Group-1234]:Configuration->Default-group-mode
+110303.384396 Misc 60 conf_get_str: configuration value not found [Group-1234]:Group-ID
+110303.384541 Misc 70 conf_set: [Group-1234]:Group-ID->Group-1
+110303.384672 Misc 60 conf_get_str: configuration value not found [Group-1]:ID-type
+110303.384815 Misc 70 conf_set: [Group-1]:ID-type->KEY_ID
+110303.384948 Misc 60 conf_get_str: configuration value not found [Group-1]:Key-value
+110303.385092 Misc 70 conf_set: [Group-1]:Key-value->1234
+110303.385478 Misc 60 conf_get_str: configuration value not found [Default-main-mode]:DOI
+110303.385630 Misc 70 conf_set: [Default-main-mode]:DOI->GROUP
+110303.385765 Misc 60 conf_get_str: configuration value not found [Default-main-mode]:EXCHANGE_TYPE
+110303.385913 Misc 70 conf_set: [Default-main-mode]:EXCHANGE_TYPE->ID_PROT
+110303.386034 Misc 60 conf_get_str: configuration value not found [Default-main-mode]:Transforms
+110303.386119 Misc 70 conf_set: [Default-main-mode]:Transforms->3DES-SHA
+110303.386189 Misc 60 conf_get_str: configuration value not found [DES-MD5]:ENCRYPTION_ALGORITHM
+110303.386265 Misc 70 conf_set: [DES-MD5]:ENCRYPTION_ALGORITHM->DES_CBC
+110303.386343 Misc 60 conf_get_str: configuration value not found [DES-MD5]:HASH_ALGORITHM
+110303.386420 Misc 70 conf_set: [DES-MD5]:HASH_ALGORITHM->MD5
+110303.386488 Misc 60 conf_get_str: configuration value not found [DES-MD5]:AUTHENTICATION_METHOD
+110303.386567 Misc 70 conf_set: [DES-MD5]:AUTHENTICATION_METHOD->PRE_SHARED
+110303.386637 Misc 60 conf_get_str: configuration value not found [DES-MD5]:GROUP_DESCRIPTION
+110303.386714 Misc 70 conf_set: [DES-MD5]:GROUP_DESCRIPTION->MODP_768
+110303.386783 Misc 60 conf_get_str: configuration value not found [DES-MD5]:Life
+110303.386855 Misc 70 conf_set: [DES-MD5]:Life->LIFE_600_SECS
+110303.386923 Misc 60 conf_get_str: configuration value not found [DES-SHA]:ENCRYPTION_ALGORITHM
+110303.386998 Misc 70 conf_set: [DES-SHA]:ENCRYPTION_ALGORITHM->DES_CBC
+110303.387066 Misc 60 conf_get_str: configuration value not found [DES-SHA]:HASH_ALGORITHM
+110303.387141 Misc 70 conf_set: [DES-SHA]:HASH_ALGORITHM->SHA
+110303.387209 Misc 60 conf_get_str: configuration value not found [DES-SHA]:AUTHENTICATION_METHOD
+110303.387286 Misc 70 conf_set: [DES-SHA]:AUTHENTICATION_METHOD->PRE_SHARED
+110303.387369 Misc 60 conf_get_str: configuration value not found [DES-SHA]:GROUP_DESCRIPTION
+110303.387445 Misc 70 conf_set: [DES-SHA]:GROUP_DESCRIPTION->MODP_768
+110303.387514 Misc 60 conf_get_str: configuration value not found [DES-SHA]:Life
+110303.387585 Misc 70 conf_set: [DES-SHA]:Life->LIFE_600_SECS
+110303.387652 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:ENCRYPTION_ALGORITHM
+110303.387728 Misc 70 conf_set: [3DES-SHA]:ENCRYPTION_ALGORITHM->3DES_CBC
+110303.387797 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:HASH_ALGORITHM
+110303.387875 Misc 70 conf_set: [3DES-SHA]:HASH_ALGORITHM->SHA
+110303.387944 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:AUTHENTICATION_METHOD
+110303.388022 Misc 70 conf_set: [3DES-SHA]:AUTHENTICATION_METHOD->PRE_SHARED
+110303.388092 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:GROUP_DESCRIPTION
+110303.388168 Misc 70 conf_set: [3DES-SHA]:GROUP_DESCRIPTION->MODP_1024
+110303.388239 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:Life
+110303.388327 Misc 70 conf_set: [3DES-SHA]:Life->LIFE_60_SECS
+110303.388397 Misc 60 conf_get_str: configuration value not found [LIFE_60_SECS]:LIFE_TYPE
+110303.388474 Misc 70 conf_set: [LIFE_60_SECS]:LIFE_TYPE->SECONDS
+110303.388543 Misc 60 conf_get_str: configuration value not found [LIFE_60_SECS]:LIFE_DURATION
+110303.388621 Misc 70 conf_set: [LIFE_60_SECS]:LIFE_DURATION->60,45:72
+110303.388690 Misc 60 conf_get_str: configuration value not found [LIFE_600_SECS]:LIFE_TYPE
+110303.388766 Misc 70 conf_set: [LIFE_600_SECS]:LIFE_TYPE->SECONDS
+110303.388837 Misc 60 conf_get_str: configuration value not found [LIFE_600_SECS]:LIFE_DURATION
+110303.388916 Misc 70 conf_set: [LIFE_600_SECS]:LIFE_DURATION->600,450:720
+110303.388984 Misc 60 conf_get_str: configuration value not found [LIFE_3600_SECS]:LIFE_TYPE
+110303.389061 Misc 70 conf_set: [LIFE_3600_SECS]:LIFE_TYPE->SECONDS
+110303.389131 Misc 60 conf_get_str: configuration value not found [LIFE_3600_SECS]:LIFE_DURATION
+110303.389209 Misc 70 conf_set: [LIFE_3600_SECS]:LIFE_DURATION->3600,1800:7200
+110303.389279 Misc 60 conf_get_str: configuration value not found [Default-group-mode]:DOI
+110303.389371 Misc 70 conf_set: [Default-group-mode]:DOI->GROUP
+110303.389441 Misc 60 conf_get_str: configuration value not found [Default-group-mode]:EXCHANGE_TYPE
+110303.389521 Misc 70 conf_set: [Default-group-mode]:EXCHANGE_TYPE->PULL_MODE
+110303.389591 Misc 60 conf_get_str: configuration value not found [Default-group-mode]:Suites
+110303.389671 Misc 70 conf_set: [Default-group-mode]:Suites->GM-ESP
+110303.406387 Misc 60 conf_get_str: configuration value not found [GM-ESP]:PROTOCOL_ID
+110303.406507 Misc 70 conf_set: [GM-ESP]:PROTOCOL_ID->IPSEC_ESP
+110303.406583 Misc 60 conf_get_str: [Phase 2]:Connections->Group-1234
+110303.406691 Timr 10 timer_add_event: event connection_checker(0x813f378) added last, expiration in 0s
+110303.406769 Misc 60 conf_get_str: configuration value not found [Group-1234]:Flags
+110303.406863 Misc 60 conf_get_str: [Group-1234]:Group-ID->Group-1
+110303.406935 Misc 60 conf_get_str: [Group-1]:ID-type->KEY_ID
+110303.407959 Misc 60 conf_get_str: [Group-1]:Key-value->1234
+110303.408075 Misc 60 connection_record_passive: passive connection "Group-1234" added
+110303.408154 Misc 60 conf_get_str: configuration value not found [Phase 2]:Passive-Connections
+110303.408259 Timr 10 timer_add_event: event cookie_reset_event((nil)) added last, expiration in 360s
+110303.408375 Misc 60 conf_get_str: configuration value not found [X509-certificates]:CA-directory
+110303.408445 Default x509_cert_init: no CA-directory
+110303.410252 Misc 60 conf_get_str: [General]:Listen-on->10.0.224.37
+110303.410451 Misc 60 conf_get_str: [General]:Listen-on->10.0.224.37
+110303.410629 Trpt 70 transport_add: adding 0x8140170
+110303.410701 Trpt 90 transport_reference: transport 0x8140170 now has 1 references
+110303.410831 Misc 60 conf_get_str: [General]:Listen-on->10.0.224.37
+110303.410935 Trpt 70 transport_add: adding 0x81401c0
+110303.411000 Trpt 90 transport_reference: transport 0x81401c0 now has 1 references
+110303.411070 Misc 60 conf_get_str: [General]:Listen-on->10.0.224.37
+110303.412614 Timr 10 timer_handle_expirations: event connection_checker(0x813f378)
+110303.412706 Misc 60 conf_get_str: [General]:check-interval->60
+110303.412787 Timr 10 timer_add_event: event connection_checker(0x813f378) added before cookie_reset_event((nil)), expiration in 60s
+110303.412881 SA   90 sa_find: no SA matched query
+110303.412954 Sdep 70 pf_key_v2_connection_check: SA for Group-1234 missing
+110303.413024 Misc 60 conf_get_str: [Group-1234]:Phase->2
+110303.413096 Misc 60 conf_get_str: [Group-1234]:ISAKMP-peer->GDOI-key-server
+110303.413157 SA   90 sa_find: no SA matched query
+110303.413229 Misc 60 conf_get_str: [GDOI-key-server]:Phase->1
+110303.413315 Misc 60 conf_get_str: [GDOI-key-server]:Phase->1
+110303.413389 Misc 60 conf_get_str: [GDOI-key-server]:Transport->udp
+110303.413459 Misc 60 conf_get_str: [GDOI-key-server]:Port->848
+110303.413529 Misc 60 conf_get_str: [GDOI-key-server]:Address->10.0.224.44
+110303.413612 Misc 60 conf_get_str: [GDOI-key-server]:Local-address->10.0.224.37
+110303.413685 Trpt 70 transport_add: adding 0x8140880
+110303.413766 Misc 60 conf_get_str: [GDOI-key-server]:Configuration->Default-main-mode
+110303.413858 Misc 60 conf_get_str: [Default-main-mode]:DOI->GROUP
+110303.413939 Misc 60 conf_get_str: [Default-main-mode]:EXCHANGE_TYPE->ID_PROT
+110303.414022 Misc 60 conf_get_str: [General]:Exchange-max-time->120
+110303.414104 Timr 10 timer_add_event: event exchange_free_aux(0x81408d0) added before cookie_reset_event((nil)), expiration in 120s
+110303.414182 Misc 60 conf_get_str: [GDOI-key-server]:Configuration->Default-main-mode
+110303.414326 Exch 10 exchange_establish_p1: 0x81408d0 GDOI-key-server Default-main-mode policy initiator phase 1 doi 2 exchange 2 step 0
+110303.414411 Exch 10 exchange_establish_p1: icookie 957e3b86f602b129 rcookie 0000000000000000
+110303.414483 Exch 10 exchange_establish_p1: msgid 00000000 
+110303.414590 Trpt 90 transport_reference: transport 0x8140880 now has 1 references
+110303.414667 Mesg 90 message_alloc: allocated 0x81409e0
+110303.414739 SA   80 sa_reference: SA 0x8141220 now has 1 references
+110303.414822 SA   70 sa_enter: SA 0x8141220 added to SA list
+110303.414888 SA   80 sa_reference: SA 0x8141220 now has 2 references
+110303.414954 SA   60 sa_create: sa 0x8141220 phase 1 added to exchange 0x81408d0 (GDOI-key-server)
+110303.415024 SA   80 sa_reference: SA 0x8141220 now has 3 references
+110303.415110 Misc 60 conf_get_str: [Default-main-mode]:Transforms->3DES-SHA
+110303.536327 Misc 60 conf_get_str: [3DES-SHA]:ENCRYPTION_ALGORITHM->3DES_CBC
+110303.536418 Misc 60 conf_get_str: [3DES-SHA]:HASH_ALGORITHM->SHA
+110303.536489 Misc 60 conf_get_str: [3DES-SHA]:AUTHENTICATION_METHOD->PRE_SHARED
+110303.536559 Misc 60 conf_get_str: [3DES-SHA]:GROUP_DESCRIPTION->MODP_1024
+110303.536642 Misc 60 conf_get_str: [3DES-SHA]:Life->LIFE_60_SECS
+110303.536719 Misc 60 conf_get_str: [LIFE_60_SECS]:LIFE_TYPE->SECONDS
+110303.536808 Misc 60 conf_get_str: [LIFE_60_SECS]:LIFE_DURATION->60,45:72
+110303.536884 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:PRF
+110303.536950 Misc 70 attribute_set_constant: no PRF in the 3DES-SHA section
+110303.537017 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:KEY_LENGTH
+110303.537090 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:FIELD_SIZE
+110303.537162 Misc 60 conf_get_str: configuration value not found [3DES-SHA]:GROUP_ORDER
+110303.537259 Exch 90 exchange_validate: checking for required SA
+110303.537360 Mesg 70 message_send: message 0x81409e0
+110303.537445 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110303.537527 Mesg 70 RCOOKIE: 0x0000000000000000
+110303.537592 Mesg 70 NEXT_PAYLOAD: SA
+110303.537670 Mesg 70 VERSION: 16
+110303.537737 Mesg 70 EXCH_TYPE: ID_PROT
+110303.537817 Mesg 70 FLAGS: [ ]
+110303.537891 Mesg 70 MESSAGE_ID: 0x00000000
+110303.537957 Mesg 70 LENGTH: 80
+110303.538084 Mesg 70 message_send: 957e3b86 f602b129 00000000 00000000 01100200 00000000 00000050 00000034
+110303.538216 Mesg 70 message_send: 00000002 00000000 00000028 01010001 00000020 00010000 80010005 80020002
+110303.538328 Mesg 70 message_send: 80030001 80040002 800b0001 800c003c 
+110303.538395 Exch 40 exchange_run: exchange 0x81408d0 finished step 0, advancing...
+110303.538508 Trpt 90 transport_reference: transport 0x8140880 now has 2 references
+110303.538578 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110303.538646 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110303.538946 Misc 60 conf_get_str: [General]:retransmits->5
+110303.539031 Trpt 30 transport_send_messages: message 0x81409e0 scheduled for retransmission 1 in 7 secs
+110303.539114 Timr 10 timer_add_event: event message_send_expire(0x81409e0) added before connection_checker(0x813f378), expiration in 7s
+110303.539199 Trpt 90 transport_release: transport 0x8140880 had 2 references
+110303.539274 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110303.539341 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110303.635998 Trpt 70 transport_add: adding 0x8141378
+110303.636099 Trpt 90 transport_reference: transport 0x8141378 now has 1 references
+110303.636172 Mesg 90 message_alloc: allocated 0x81413c8
+110303.636234 Mesg 70 message_recv: message 0x81413c8
+110303.636339 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110303.636418 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110303.636481 Mesg 70 NEXT_PAYLOAD: SA
+110303.636546 Mesg 70 VERSION: 16
+110303.636607 Mesg 70 EXCH_TYPE: ID_PROT
+110303.636669 Mesg 70 FLAGS: [ ]
+110303.636739 Mesg 70 MESSAGE_ID: 0x00000000
+110303.636823 Mesg 70 LENGTH: 80
+110303.636945 Mesg 70 message_recv: 957e3b86 f602b129 232f5e1e 4f192e67 01100200 00000000 00000050 00000034
+110303.637078 Mesg 70 message_recv: 00000002 00000000 00000028 01010001 00000020 00010000 80010005 80020002
+110303.637178 Mesg 70 message_recv: 80030001 80040002 800b0001 800c003c 
+110303.637264 SA   70 sa_remove: SA 0x8141220 removed from SA list
+110303.637334 SA   80 sa_release: SA 0x8141220 had 3 references
+110303.637401 SA   80 sa_release: SA 0x8141220 now has 2 references (sa_release)
+110303.637466 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110303.637536 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110303.637608 SA   80 sa_reference: SA 0x8141220 now has 3 references
+110303.637670 SA   70 sa_enter: SA 0x8141220 added to SA list
+110303.637733 Mesg 90 message_check_duplicate: last_received 0x0
+110303.637814 Mesg 20 message_free: freeing 0x81409e0
+110303.680187 Timr 10 timer_remove_event: removing event message_send_expire(0x81409e0)
+110303.680290 Trpt 90 transport_release: transport 0x8140880 had 1 references
+110303.680356 Trpt 70 transport_release: freeing 0x8140880
+110303.680423 SA   80 sa_release: SA 0x8141220 had 3 references
+110303.680488 SA   80 sa_release: SA 0x8141220 now has 2 references (sa_release)
+110303.680551 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110303.680633 Mesg 50 message_parse_payloads: offset 0x1c payload SA
+110303.680707 Mesg 60 message_validate_payloads: payload SA at 0x8141c24 of message 0x81413c8
+110303.680798 Mesg 70 DOI: 2
+110303.680866 SA   80 sa_reference: SA 0x8141220 now has 3 references
+110303.680934 Mesg 50 message_parse_payloads: offset 0x28 payload PROPOSAL
+110303.681004 Mesg 50 message_parse_payloads: offset 0x30 payload TRANSFORM
+110303.681070 Mesg 50 Transform 0's attributes
+110303.681138 Mesg 60 message_validate_payloads: payload PROPOSAL at 0x8141c30 of message 0x81413c8
+110303.681211 Mesg 70 NO: 1
+110303.681291 Mesg 70 PROTO: ISAKMP
+110303.681359 Mesg 70 SPI_SZ: 0
+110303.681423 Mesg 70 NTRANSFORMS: 1
+110303.681489 Mesg 60 message_validate_payloads: payload TRANSFORM at 0x8141c38 of message 0x81413c8
+110303.681561 Mesg 70 NO: 0
+110303.681624 Mesg 70 ID: 1
+110303.681697 Exch 90 exchange_validate: checking for required SA
+110303.681794 Negt 30 message_negotiate_sa: transform 0 proto 1 proposal 1 ok
+110303.681870 SA   80 sa_add_transform: proto 0x813e8d0 no 1 proto 1 chosen 0x813e940 sa 0x8141220 id 1
+110303.681947 Misc 60 conf_get_str: [Default-main-mode]:Transforms->3DES-SHA
+110303.682025 Misc 60 conf_get_str: [3DES-SHA]:ENCRYPTION_ALGORITHM->3DES_CBC
+110303.682100 Misc 60 conf_get_str: [3DES-SHA]:HASH_ALGORITHM->SHA
+110303.682172 Misc 60 conf_get_str: [3DES-SHA]:AUTHENTICATION_METHOD->PRE_SHARED
+110303.682254 Misc 60 conf_get_str: [3DES-SHA]:GROUP_DESCRIPTION->MODP_1024
+110303.682328 Misc 60 conf_get_str: [3DES-SHA]:Life->LIFE_60_SECS
+110303.682402 Misc 60 conf_get_str: [3DES-SHA]:Life->LIFE_60_SECS
+110303.682471 Misc 60 conf_get_str: [LIFE_60_SECS]:LIFE_TYPE->SECONDS
+110303.682542 Misc 60 conf_get_str: [3DES-SHA]:Life->LIFE_60_SECS
+110303.682613 Misc 60 conf_get_str: [3DES-SHA]:Life->LIFE_60_SECS
+110303.682680 Misc 60 conf_get_str: [LIFE_60_SECS]:LIFE_DURATION->60,45:72
+110303.682745 Misc 60 conf_get_str: [LIFE_60_SECS]:LIFE_DURATION->60,45:72
+110303.682857 Misc 90 conf_match_num: LIFE_60_SECS:LIFE_DURATION 45<=60<=72?
+110303.682955 Negt 20 ike_phase_1_validate_prop: success
+110303.683022 Negt 30 message_negotiate_sa: proposal 1 succeeded
+110303.683085 Misc 20 ipsec_decode_transform: transform 0 chosen
+110303.683170 Misc 70 group_get: returning 0x81412f0 of group 2
+110303.683255 Exch 40 exchange_run: exchange 0x81408d0 finished step 1, advancing...
+110303.683374 Trpt 90 transport_reference: transport 0x8141378 now has 3 references
+110303.683451 Mesg 90 message_alloc: allocated 0x8141c60
+110303.683516 SA   80 sa_reference: SA 0x8141220 now has 4 references
+110303.728970 Misc 80 ipsec_g_x: g^xi:
+110303.729110 Misc 80 a429da99 e2e74ce3 5ae42cf5 864108cf 1c86e285 800f9be5 5cb15ff3 758f08ca
+110303.729249 Misc 80 a14d49c0 7ef44607 59852333 3dd7c7b2 458f3330 5ced09da 3838b813 0ae07205
+110303.729375 Misc 80 f1dd6a05 b80b2aee f5b442e4 3c8f5625 0cefcce6 5b1c10af 521c87b5 551effbf
+110303.729500 Misc 80 9f20c582 b0527ff2 6fb07f4d 407ce0eb 027f5f42 b04cd1f6 50ffd70a 9307d12d
+110303.729581 Exch 80 exchange_nonce: NONCE_i:
+110303.729673 Exch 80 fb85e612 29a5c670 d1ed0e52 e63f4a37 
+110303.729738 Exch 90 exchange_validate: checking for required KEY_EXCH
+110303.729826 Exch 90 exchange_validate: checking for required NONCE
+110303.729893 Mesg 70 message_send: message 0x8141c60
+110303.729974 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110303.730053 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110303.730117 Mesg 70 NEXT_PAYLOAD: KEY_EXCH
+110303.730183 Mesg 70 VERSION: 16
+110303.730257 Mesg 70 EXCH_TYPE: ID_PROT
+110303.730322 Mesg 70 FLAGS: [ ]
+110303.821014 Mesg 70 MESSAGE_ID: 0x00000000
+110303.821090 Mesg 70 LENGTH: 180
+110303.821229 Mesg 70 message_send: 957e3b86 f602b129 232f5e1e 4f192e67 04100200 00000000 000000b4 0a000084
+110303.821360 Mesg 70 message_send: a429da99 e2e74ce3 5ae42cf5 864108cf 1c86e285 800f9be5 5cb15ff3 758f08ca
+110303.821487 Mesg 70 message_send: a14d49c0 7ef44607 59852333 3dd7c7b2 458f3330 5ced09da 3838b813 0ae07205
+110303.821614 Mesg 70 message_send: f1dd6a05 b80b2aee f5b442e4 3c8f5625 0cefcce6 5b1c10af 521c87b5 551effbf
+110303.821760 Mesg 70 message_send: 9f20c582 b0527ff2 6fb07f4d 407ce0eb 027f5f42 b04cd1f6 50ffd70a 9307d12d
+110303.821868 Mesg 70 message_send: 00000014 fb85e612 29a5c670 d1ed0e52 e63f4a37 
+110303.821940 Exch 40 exchange_run: exchange 0x81408d0 finished step 2, advancing...
+110303.822016 Trpt 90 transport_reference: transport 0x8141378 now has 4 references
+110303.822086 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110303.822153 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110303.822233 Trpt 90 transport_release: transport 0x8141378 had 4 references
+110303.822299 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110303.822363 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110303.822474 Trpt 90 transport_reference: transport 0x8141378 now has 4 references
+110303.822544 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110303.822613 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110303.822793 Misc 60 conf_get_str: [General]:retransmits->5
+110303.822878 Trpt 30 transport_send_messages: message 0x8141c60 scheduled for retransmission 1 in 7 secs
+110303.822962 Timr 10 timer_add_event: event message_send_expire(0x8141c60) added before connection_checker(0x813f378), expiration in 7s
+110303.823034 Trpt 90 transport_release: transport 0x8141378 had 4 references
+110303.823097 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110303.823160 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110304.322073 Trpt 70 transport_add: adding 0x8140880
+110304.322271 Trpt 90 transport_reference: transport 0x8140880 now has 1 references
+110304.322374 Mesg 90 message_alloc: allocated 0x81427e0
+110304.322445 Mesg 70 message_recv: message 0x81427e0
+110304.322536 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110304.322620 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110304.322700 Mesg 70 NEXT_PAYLOAD: KEY_EXCH
+110304.322780 Mesg 70 VERSION: 16
+110304.322848 Mesg 70 EXCH_TYPE: ID_PROT
+110304.322916 Mesg 70 FLAGS: [ ]
+110304.322993 Mesg 70 MESSAGE_ID: 0x00000000
+110304.323072 Mesg 70 LENGTH: 180
+110304.323217 Mesg 70 message_recv: 957e3b86 f602b129 232f5e1e 4f192e67 04100200 00000000 000000b4 0a000084
+110304.323354 Mesg 70 message_recv: 0aa827d3 ad52dbf1 db546aa5 56130eb3 c33786ab 7293b263 7cd64f96 8a7cd3fc
+110304.323498 Mesg 70 message_recv: 4661c7c3 a1cccd81 e0c2b4a0 09900d55 412a27f9 8e2cf80d c91730ed 1f8d9d8b
+110304.323633 Mesg 70 message_recv: 1aadc3f0 bd910223 1d151761 01699eca 92e8b85f ab32b442 7f91f163 d7e88648
+110304.323765 Mesg 70 message_recv: 745214e2 cf84cc80 e0f523ae 57176b94 564bebaf 55f142a5 2228798f 26d5082f
+110304.323877 Mesg 70 message_recv: 00000014 fb40c23d fa26a01b aadea179 3ac3c675 
+110304.323956 SA   80 sa_reference: SA 0x8141220 now has 5 references
+110304.324027 Mesg 90 message_check_duplicate: last_received 0x81413c8
+110304.324094 Mesg 95 message_check_duplicate: last_received:
+110304.324236 Mesg 95 957e3b86 f602b129 232f5e1e 4f192e67 01100200 00000000 00000050 00000034
+110304.324382 Mesg 95 00000002 00000000 00000028 01010001 00000020 00010000 80010005 80020002
+110304.324486 Mesg 95 80030001 80040002 800b0001 800c003c 
+110304.324552 Mesg 20 message_free: freeing 0x8141c60
+110304.324625 Timr 10 timer_remove_event: removing event message_send_expire(0x8141c60)
+110304.324707 Trpt 90 transport_release: transport 0x8141378 had 3 references
+110304.324776 SA   80 sa_release: SA 0x8141220 had 5 references
+110304.324846 SA   80 sa_release: SA 0x8141220 now has 4 references (sa_release)
+110304.324914 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110304.325000 Mesg 50 message_parse_payloads: offset 0x1c payload KEY_EXCH
+110304.325076 Mesg 50 message_parse_payloads: offset 0xa0 payload NONCE
+110304.325168 Mesg 60 message_validate_payloads: payload KEY_EXCH at 0x814259c of message 0x81427e0
+110304.325251 Mesg 60 message_validate_payloads: payload NONCE at 0x8142620 of message 0x81427e0
+110304.325334 Exch 90 exchange_validate: checking for required KEY_EXCH
+110304.325401 Exch 90 exchange_validate: checking for required NONCE
+110304.325482 Misc 80 ipsec_g_x: g^xr:
+110304.325604 Misc 80 0aa827d3 ad52dbf1 db546aa5 56130eb3 c33786ab 7293b263 7cd64f96 8a7cd3fc
+110304.325734 Misc 80 4661c7c3 a1cccd81 e0c2b4a0 09900d55 412a27f9 8e2cf80d c91730ed 1f8d9d8b
+110304.325863 Misc 80 1aadc3f0 bd910223 1d151761 01699eca 92e8b85f ab32b442 7f91f163 d7e88648
+110304.325991 Misc 80 745214e2 cf84cc80 e0f523ae 57176b94 564bebaf 55f142a5 2228798f 26d5082f
+110304.326069 Exch 80 exchange_nonce: NONCE_r:
+110304.326187 Exch 80 fb40c23d fa26a01b aadea179 3ac3c675 
+110304.377884 Negt 80 ike_phase_1_post_exchange_KE_NONCE: g^xy:
+110304.378130 Negt 80 3566c7dc adeac30a 7690c318 8a974fea a97f59d4 391c3e51 32dab30e 863ef192
+110304.378321 Negt 80 711d7920 2f702636 4312a76b b0ed881e eb9b2cc1 a793145a a679905f bdd84176
+110304.378511 Negt 80 2b980c74 d22b9f12 572554ac 8898036e ebdb1a3c efb056f6 ac3108e1 cc9b0262
+110304.378701 Negt 80 ab693ccb b9a0c931 8b741fb3 6d341382 8575647a af929c5a f09c5d72 759fa5e7
+110304.378844 Misc 60 conf_get_str: [GDOI-key-server]:Authentication->mekmitasdigoat
+110304.379041 Negt 80 ike_phase_1_post_exchange_KE_NONCE: SKEYID:
+110304.379221 Negt 80 cca17737 fee4d58b f459804b 146ccee6 902cec7b 
+110304.379374 Negt 80 ike_phase_1_post_exchange_KE_NONCE: SKEYID_d:
+110304.379542 Negt 80 ea265791 5352b9e2 5189f8e5 8d302c7e 560bd9ed 
+110304.379687 Negt 80 ike_phase_1_post_exchange_KE_NONCE: SKEYID_a:
+110304.379853 Negt 80 331d58dd b1ce66b8 0e8f8514 65fedc43 25b4cc63 
+110304.379999 Negt 80 ike_phase_1_post_exchange_KE_NONCE: SKEYID_e:
+110304.380177 Negt 80 33593849 a445b93b 805caf11 4b9bf022 39569375 
+110304.380335 Cryp 40 crypto_init: key:
+110304.380510 Cryp 40 335a62df f6f5170e 0c138fe5 34fae831 23df5616 5fe37e3c 
+110304.380674 Cryp 50 crypto_update_iv: initialized IV:
+110304.380820 Cryp 50 ce9979b5 51876db2 
+110304.380950 Mesg 20 message_free: freeing 0x81413c8
+110304.381086 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110304.381230 SA   80 sa_release: SA 0x8141220 had 4 references
+110304.381358 SA   80 sa_release: SA 0x8141220 now has 3 references (sa_release)
+110304.381486 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110304.381605 Exch 40 exchange_run: exchange 0x81408d0 finished step 3, advancing...
+110304.381706 Trpt 90 transport_reference: transport 0x8140880 now has 2 references
+110304.381780 Mesg 90 message_alloc: allocated 0x81413c8
+110304.381844 SA   80 sa_reference: SA 0x8141220 now has 4 references
+110304.381923 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:ID
+110304.382000 Misc 60 conf_get_str: configuration value not found [General]:Default-phase-1-ID
+110304.382084 Negt 40 ike_phase_1_send_ID: IPV4_ADDR:
+110304.382170 Negt 40 0a00e025 
+110304.382278 Misc 80 pre_shared_encode_hash: HASH_I:
+110304.382382 Misc 80 503d7648 920baeaf 2475ef09 89167c9d d9d7df11 
+110304.382468 Exch 90 exchange_validate: checking for required ID
+110304.382537 Exch 90 exchange_validate: checking for required AUTH
+110304.382618 Cryp 10 crypto_encrypt: before encryption:
+110304.382744 Cryp 10 0800000c 01000000 0a00e025 0b000018 503d7648 920baeaf 2475ef09 89167c9d
+110304.382871 Cryp 10 d9d7df11 0000001c 00000001 01106002 957e3b86 f602b129 232f5e1e 4f192e67
+110304.383012 Cryp 30 crypto_encrypt: after encryption:
+110304.383151 Cryp 30 da019838 e7e4d036 05079dd4 199522a4 41a19ebd 5508ed18 52d7b4b6 cf63f939
+110304.383278 Cryp 30 e2a686e1 1c8be76d 4e25d6a9 08a03476 86aa4dbc c140348e 0779158e 94e5e346
+110304.383346 Cryp 50 crypto_update_iv: updated IV:
+110304.383421 Cryp 50 0779158e 94e5e346 
+110304.383482 Mesg 70 message_send: message 0x81413c8
+110304.383562 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110304.383641 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110304.383705 Mesg 70 NEXT_PAYLOAD: ID
+110304.383771 Mesg 70 VERSION: 16
+110304.383833 Mesg 70 EXCH_TYPE: ID_PROT
+110304.383899 Mesg 70 FLAGS: [ ENC ]
+110304.383970 Mesg 70 MESSAGE_ID: 0x00000000
+110304.384035 Mesg 70 LENGTH: 92
+110304.384172 Mesg 70 message_send: 957e3b86 f602b129 232f5e1e 4f192e67 05100201 00000000 0000005c da019838
+110304.384302 Mesg 70 message_send: e7e4d036 05079dd4 199522a4 41a19ebd 5508ed18 52d7b4b6 cf63f939 e2a686e1
+110304.384421 Mesg 70 message_send: 1c8be76d 4e25d6a9 08a03476 86aa4dbc c140348e 0779158e 94e5e346 
+110304.384491 Exch 40 exchange_run: exchange 0x81408d0 finished step 4, advancing...
+110304.384565 Trpt 90 transport_reference: transport 0x8140880 now has 3 references
+110304.384634 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110304.384702 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110304.384770 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110304.384838 Trpt 90 transport_release: transport 0x8140880 had 3 references
+110304.384901 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110304.384963 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110304.385026 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110304.385150 Trpt 90 transport_reference: transport 0x8140880 now has 3 references
+110304.385223 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110304.385291 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110304.385359 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110304.385526 Misc 60 conf_get_str: [General]:retransmits->5
+110304.385611 Trpt 30 transport_send_messages: message 0x81413c8 scheduled for retransmission 1 in 7 secs
+110304.385728 Timr 10 timer_add_event: event message_send_expire(0x81413c8) added before connection_checker(0x813f378), expiration in 7s
+110304.385802 Trpt 90 transport_release: transport 0x8140880 had 3 references
+110304.385865 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110304.385927 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110304.385990 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110305.340768 Trpt 70 transport_add: adding 0x8140e10
+110305.340887 Trpt 90 transport_reference: transport 0x8140e10 now has 1 references
+110305.340981 Mesg 90 message_alloc: allocated 0x8141c08
+110305.341050 Mesg 70 message_recv: message 0x8141c08
+110305.341136 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110305.341218 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110305.341286 Mesg 70 NEXT_PAYLOAD: ID
+110305.341356 Mesg 70 VERSION: 16
+110305.341421 Mesg 70 EXCH_TYPE: ID_PROT
+110305.341491 Mesg 70 FLAGS: [ ENC ]
+110305.341526 Mesg 70 MESSAGE_ID: 0x00000000
+110305.341594 Mesg 70 LENGTH: 92
+110305.341719 Mesg 70 message_recv: 957e3b86 f602b129 232f5e1e 4f192e67 05100201 00000000 0000005c 2852d718
+110305.341851 Mesg 70 message_recv: 1631ba40 cc84ae6e 19e5e061 cea4a622 c8b19683 547a39e7 e549a72b 66b4c3a4
+110305.342082 Mesg 70 message_recv: 082b5c54 2dc99eb4 5a60c66c 7d63b8b9 844c43ea 99869bed 414579f8 
+110305.342171 SA   80 sa_reference: SA 0x8141220 now has 5 references
+110305.342243 Mesg 90 message_check_duplicate: last_received 0x81427e0
+110305.342307 Mesg 95 message_check_duplicate: last_received:
+110305.342431 Mesg 95 957e3b86 f602b129 232f5e1e 4f192e67 04100200 00000000 000000b4 0a000084
+110305.342561 Mesg 95 0aa827d3 ad52dbf1 db546aa5 56130eb3 c33786ab 7293b263 7cd64f96 8a7cd3fc
+110305.342691 Mesg 95 4661c7c3 a1cccd81 e0c2b4a0 09900d55 412a27f9 8e2cf80d c91730ed 1f8d9d8b
+110305.342820 Mesg 95 1aadc3f0 bd910223 1d151761 01699eca 92e8b85f ab32b442 7f91f163 d7e88648
+110305.342962 Mesg 95 745214e2 cf84cc80 e0f523ae 57176b94 564bebaf 55f142a5 2228798f 26d5082f
+110305.343072 Mesg 95 00000014 fb40c23d fa26a01b aadea179 3ac3c675 
+110305.343139 Mesg 20 message_free: freeing 0x81413c8
+110305.343209 Timr 10 timer_remove_event: removing event message_send_expire(0x81413c8)
+110305.343289 Trpt 90 transport_release: transport 0x8140880 had 2 references
+110305.343358 SA   80 sa_release: SA 0x8141220 had 5 references
+110305.343427 SA   80 sa_release: SA 0x8141220 now has 4 references (sa_release)
+110305.343494 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110305.343576 Cryp 10 crypto_decrypt: before decryption:
+110305.343700 Cryp 10 2852d718 1631ba40 cc84ae6e 19e5e061 cea4a622 c8b19683 547a39e7 e549a72b
+110305.343829 Cryp 10 66b4c3a4 082b5c54 2dc99eb4 5a60c66c 7d63b8b9 844c43ea 99869bed 414579f8
+110305.343949 Cryp 30 crypto_decrypt: after decryption:
+110305.344080 Cryp 30 0800000c 01000000 0a00e02c 0b000018 be1dd779 72a697e7 8466e026 9e243c7d
+110305.344212 Cryp 30 ebbf29d4 0000001c 00000001 01106002 957e3b86 f602b129 232f5e1e 4f192e67
+110305.344299 Mesg 50 message_parse_payloads: offset 0x1c payload ID
+110305.344371 Mesg 50 message_parse_payloads: offset 0x28 payload HASH
+110305.344442 Mesg 50 message_parse_payloads: offset 0x40 payload NOTIFY
+110305.344515 Mesg 60 message_validate_payloads: payload ID at 0x8140f4c of message 0x8141c08
+110305.344611 Mesg 70 TYPE: 1
+110305.344687 Mesg 70 DOI_DATA: 0x000000
+110305.344758 Mesg 00 gdoi_validate_id_information: proto 0 port 0 type 1
+110305.344823 Mesg 40 gdoi_validate_id_information: IPv4:
+110305.344909 Mesg 40 0a00e02c 
+110305.344980 Mesg 60 message_validate_payloads: payload HASH at 0x8140f58 of message 0x8141c08
+110305.345059 Mesg 60 message_validate_payloads: payload NOTIFY at 0x8140f70 of message 0x8141c08
+110305.345135 Mesg 70 DOI: IPSEC
+110305.345201 Mesg 70 PROTO: ISAKMP
+110305.345270 Mesg 70 SPI_SZ: 16
+110305.345339 Mesg 70 MSG_TYPE: INITIAL_CONTACT
+110305.345418 Exch 90 exchange_validate: checking for required ID
+110305.345488 Exch 90 exchange_validate: checking for required AUTH
+110305.345562 Negt 40 ike_phase_1_recv_ID: IPV4_ADDR:
+110305.345636 Negt 40 0a00e02c 
+110305.345704 Misc 80 pre_shared_decode_hash: HASH_R:
+110305.345805 Misc 80 be1dd779 72a697e7 8466e026 9e243c7d ebbf29d4 
+110305.345936 Negt 80 ike_phase_1_recv_AUTH: computed HASH_R:
+110305.346043 Negt 80 be1dd779 72a697e7 8466e026 9e243c7d ebbf29d4 
+110305.346109 Exch 10 exchange_run: unexpected payload NOTIFY
+110305.346181 Mesg 20 message_free: freeing 0x81427e0
+110305.346253 Trpt 90 transport_release: transport 0x8140880 had 1 references
+110305.346320 Trpt 70 transport_release: freeing 0x8140880
+110305.346388 SA   80 sa_release: SA 0x8141220 had 4 references
+110305.346455 SA   80 sa_release: SA 0x8141220 now has 3 references (sa_release)
+110305.346530 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110305.346601 Cryp 50 crypto_update_iv: updated IV:
+110305.346681 Cryp 50 99869bed 414579f8 
+110305.346757 Exch 10 exchange_finalize: 0x81408d0 GDOI-key-server Default-main-mode policy initiator phase 1 doi 2 exchange 2 step 5
+110305.346838 Exch 10 exchange_finalize: icookie 957e3b86f602b129 rcookie 232f5e1e4f192e67
+110305.346924 Exch 10 exchange_finalize: msgid 00000000 
+110305.347344 SA   90 sa_find: no SA matched query
+110305.347434 Misc 60 conf_get_str: configuration value not found [GDOI-key-server]:Flags
+110305.347645 Exch 10 exchange_finalize: phase 1 done: initiator id 0a00e025: 10.0.224.37, responder id 0a00e02c: 10.0.224.44, src: 10.0.224.37 dst: 10.0.224.44
+110305.347746 Timr 95 sa_setup_expirations: SA 0x8141220 soft timeout in 52 seconds
+110305.347835 Timr 10 timer_add_event: event sa_soft_expire(0x8141220) added before connection_checker(0x813f378), expiration in 52s
+110305.347919 SA   80 sa_reference: SA 0x8141220 now has 4 references
+110305.347994 Timr 95 sa_setup_expirations: SA 0x8141220 hard timeout in 60 seconds
+110305.348078 Timr 10 timer_add_event: event sa_hard_expire(0x8141220) added before exchange_free_aux(0x81408d0), expiration in 60s
+110305.348149 SA   80 sa_reference: SA 0x8141220 now has 5 references
+110305.348210 Exch 50 gdoi_finalize_exchange: DONE WITH PHASE 1!!!
+
+110305.348286 Exch 20 exchange_establish_finalize: finalizing exchange 0x81408d0 with arg 0x813f168 (Group-1234) & fail = 0
+110305.348364 Misc 60 conf_get_str: [Group-1234]:Phase->2
+110305.348436 Exch 90 exchange_lookup_by_name: Group-1234 == GDOI-key-server && 2 == 1?
+110305.348509 Misc 60 conf_get_str: [Group-1234]:ISAKMP-peer->GDOI-key-server
+110305.348576 SA   90 sa_find: return SA 0x8141220
+110305.348642 Misc 60 conf_get_str: [Group-1234]:Configuration->Default-group-mode
+110305.348714 Misc 60 conf_get_str: configuration value not found [Group-1234]:Acquire-ID
+110305.348786 Misc 60 conf_get_str: [Default-group-mode]:DOI->GROUP
+110305.348853 Misc 60 conf_get_str: [Default-group-mode]:EXCHANGE_TYPE->PULL_MODE
+110305.348951 Misc 60 conf_get_str: [General]:Exchange-max-time->120
+110305.349035 Timr 10 timer_add_event: event exchange_free_aux(0x8140fa8) added before cookie_reset_event((nil)), expiration in 120s
+110305.349112 Misc 60 conf_get_str: [Group-1234]:Configuration->Default-group-mode
+110305.349193 Exch 10 exchange_establish_p2: 0x8140fa8 Group-1234 Default-group-mode policy initiator phase 2 doi 2 exchange 32 step 0
+110305.349270 Exch 10 exchange_establish_p2: icookie 957e3b86f602b129 rcookie 232f5e1e4f192e67
+110305.349340 Exch 10 exchange_establish_p2: msgid 3cc1f923 sa_list 
+110305.349415 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110305.349488 Mesg 90 message_alloc: allocated 0x81427e0
+110305.349551 SA   80 sa_reference: SA 0x8141220 now has 6 references
+110305.349633 Exch 80 exchange_nonce: NONCE_i:
+110305.349728 Exch 80 7cb79b64 94c75a27 75653839 d80ff11c 
+110305.349795 Misc 60 conf_get_str: [Group-1234]:Group-ID->Group-1
+110305.349864 Misc 60 conf_get_str: [Group-1]:ID-type->KEY_ID
+110305.349951 Misc 60 conf_get_str: [Group-1]:Key-value->1234
+110305.350020 Misc 90 initiator_send_HASH_NONCE_ID: ID:
+110305.350105 Misc 90 00000000 0b000000 000004d2 
+110305.350173 Misc 90 group_do_hash: SKEYID_a:
+110305.350271 Misc 90 331d58dd b1ce66b8 0e8f8514 65fedc43 25b4cc63 
+110305.350349 Misc 90 group_do_hash: message_id:
+110305.350421 Misc 90 3cc1f923 
+110305.350484 Misc 90 group_fill_in_hash: payload 1 after HASH:
+110305.350583 Misc 90 05000014 7cb79b64 94c75a27 75653839 d80ff11c 
+110305.350651 Misc 90 group_fill_in_hash: payload 2 after HASH:
+110305.350735 Misc 90 0000000c 0b000000 000004d2 
+110305.350806 Misc 80 group_fill_in_hash: HASH:
+110305.350920 Misc 80 515d3409 a7a6c155 6b9b73b2 cab62b0f eb43e712 
+110305.350986 Exch 90 exchange_validate: checking for required HASH
+110305.351049 Exch 90 exchange_validate: checking for required NONCE
+110305.351112 Exch 90 exchange_validate: checking for required ID
+110305.351180 Cryp 80 gdoi_get_keystate: final phase 1 IV:
+110305.351257 Cryp 80 99869bed 414579f8 
+110305.351316 Cryp 80 gdoi_get_keystate: message ID:
+110305.351382 Cryp 80 3cc1f923 
+110305.351447 Cryp 50 crypto_update_iv: initialized IV:
+110305.351529 Cryp 50 6e0432e0 2c1fd20f 
+110305.351588 Cryp 80 gdoi_get_keystate: phase 2 IV:
+110305.351663 Cryp 80 6e0432e0 2c1fd20f 
+110305.351729 Cryp 10 crypto_encrypt: before encryption:
+110305.463128 Cryp 10 0a000018 515d3409 a7a6c155 6b9b73b2 cab62b0f eb43e712 05000014 7cb79b64
+110305.463255 Cryp 10 94c75a27 75653839 d80ff11c 0000000c 0b000000 000004d2 
+110305.463349 Cryp 30 crypto_encrypt: after encryption:
+110305.463469 Cryp 30 0b93aedc dae3d29b db990eee 33948e2e 5741d730 c39df964 60127d2c 3c534970
+110305.463580 Cryp 30 736349a2 46f94d8a 3d2d1ace b3721b78 626fbc58 d23457fb 
+110305.463640 Cryp 50 crypto_update_iv: updated IV:
+110305.463713 Cryp 50 626fbc58 d23457fb 
+110305.463774 Mesg 70 message_send: message 0x81427e0
+110305.463854 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110305.463954 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110305.464018 Mesg 70 NEXT_PAYLOAD: HASH
+110305.464082 Mesg 70 VERSION: 16
+110305.464144 Mesg 70 EXCH_TYPE: QUICK_MODE
+110305.464209 Mesg 70 FLAGS: [ ENC ]
+110305.464278 Mesg 70 MESSAGE_ID: 0x3cc1f923
+110305.464343 Mesg 70 LENGTH: 84
+110305.464464 Mesg 70 message_send: 957e3b86 f602b129 232f5e1e 4f192e67 08102001 3cc1f923 00000054 0b93aedc
+110305.464589 Mesg 70 message_send: dae3d29b db990eee 33948e2e 5741d730 c39df964 60127d2c 3c534970 736349a2
+110305.464692 Mesg 70 message_send: 46f94d8a 3d2d1ace b3721b78 626fbc58 d23457fb 
+110305.464761 Exch 40 exchange_run: exchange 0x8140fa8 finished step 0, advancing...
+110305.464838 SA   80 sa_release: SA 0x8141220 had 6 references
+110305.464920 SA   80 sa_release: SA 0x8141220 now has 5 references (sa_release)
+110305.464984 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110305.465051 Timr 10 timer_remove_event: removing event exchange_free_aux(0x81408d0)
+110305.465120 Exch 80 exchange_free_aux: freeing exchange 0x81408d0
+110305.465182 Mesg 20 message_free: freeing 0x8141c08
+110305.465250 Trpt 90 transport_release: transport 0x8140e10 had 1 references
+110305.465314 Trpt 70 transport_release: freeing 0x8140e10
+110305.465380 SA   80 sa_release: SA 0x8141220 had 5 references
+110305.465444 SA   80 sa_release: SA 0x8141220 now has 4 references (sa_release)
+110305.465508 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110305.465585 Trpt 90 transport_reference: transport 0x8141378 now has 3 references
+110305.465657 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110305.465724 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110305.465792 Trpt 90 transport_release: transport 0x8141378 had 3 references
+110305.465854 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110305.465935 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110305.466052 Trpt 90 transport_reference: transport 0x8141378 now has 3 references
+110305.466124 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110305.466193 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110305.466365 Misc 60 conf_get_str: [General]:retransmits->5
+110305.466452 Trpt 30 transport_send_messages: message 0x81427e0 scheduled for retransmission 1 in 7 secs
+110305.466570 Timr 10 timer_add_event: event message_send_expire(0x81427e0) added before sa_soft_expire(0x8141220), expiration in 7s
+110305.466644 Trpt 90 transport_release: transport 0x8141378 had 3 references
+110305.466707 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110305.466770 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110306.843840 Trpt 70 transport_add: adding 0x8140e10
+110306.843975 Trpt 90 transport_reference: transport 0x8140e10 now has 1 references
+110306.844054 Mesg 90 message_alloc: allocated 0x8141570
+110306.844120 Mesg 70 message_recv: message 0x8141570
+110306.844207 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110306.844288 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110306.844357 Mesg 70 NEXT_PAYLOAD: HASH
+110306.844426 Mesg 70 VERSION: 16
+110306.844492 Mesg 70 EXCH_TYPE: QUICK_MODE
+110306.844562 Mesg 70 FLAGS: [ ENC ]
+110306.844653 Mesg 70 MESSAGE_ID: 0x3cc1f923
+110306.844721 Mesg 70 LENGTH: 228
+110306.844846 Mesg 70 message_recv: 957e3b86 f602b129 232f5e1e 4f192e67 08102001 3cc1f923 000000e4 922da769
+110306.844979 Mesg 70 message_recv: d9014a10 21861bdb e9231aa2 415cffe6 f1dfae01 b2d03ea5 c81f6936 4375540c
+110306.845111 Mesg 70 message_recv: 8aeae663 2eabfbb5 b07622ea 9440a426 6aeffb61 b5e6841c 4f7b1f27 f30640a3
+110306.845243 Mesg 70 message_recv: 5983a88d 5bf90a28 44de2c7a d858d7e0 c2b9c536 86c26748 23ec6f56 29d56f0f
+110306.845378 Mesg 70 message_recv: 7e035eb2 10566be2 9bcc7605 032f2ab2 15a7b307 61ca1f88 1e061cb9 757a3144
+110306.845509 Mesg 70 message_recv: 2bdb87e6 aacbdfaa 3b6ab0ce b9979ea0 f661cc53 826b987a 957bbdc6 94f3a089
+110306.845652 Mesg 70 message_recv: 1a0b3f05 b03b04d0 8b193751 3a89c43a b8161452 7ccf4144 391a041c 5775e24a
+110306.845737 Mesg 70 message_recv: e2ba0f20 
+110306.845807 SA   80 sa_reference: SA 0x8141220 now has 5 references
+110306.845877 Mesg 90 message_check_duplicate: last_received 0x0
+110306.845943 Mesg 20 message_free: freeing 0x81427e0
+110306.846014 Timr 10 timer_remove_event: removing event message_send_expire(0x81427e0)
+110306.846093 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110306.846163 SA   80 sa_release: SA 0x8141220 had 5 references
+110306.846231 SA   80 sa_release: SA 0x8141220 now has 4 references (sa_release)
+110306.846306 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110306.846390 Cryp 10 crypto_decrypt: before decryption:
+110306.846517 Cryp 10 922da769 d9014a10 21861bdb e9231aa2 415cffe6 f1dfae01 b2d03ea5 c81f6936
+110306.846656 Cryp 10 4375540c 8aeae663 2eabfbb5 b07622ea 9440a426 6aeffb61 b5e6841c 4f7b1f27
+110306.846786 Cryp 10 f30640a3 5983a88d 5bf90a28 44de2c7a d858d7e0 c2b9c536 86c26748 23ec6f56
+110306.846915 Cryp 10 29d56f0f 7e035eb2 10566be2 9bcc7605 032f2ab2 15a7b307 61ca1f88 1e061cb9
+110306.847042 Cryp 10 757a3144 2bdb87e6 aacbdfaa 3b6ab0ce b9979ea0 f661cc53 826b987a 957bbdc6
+110306.847170 Cryp 10 94f3a089 1a0b3f05 b03b04d0 8b193751 3a89c43a b8161452 7ccf4144 391a041c
+110306.847254 Cryp 10 5775e24a e2ba0f20 
+110306.847402 Cryp 30 crypto_decrypt: after decryption:
+110306.847528 Cryp 30 0a000018 ab8df0ff 90e2c084 0bb2bd08 e1b1a328 8ec714b1 01000014 29a5c670
+110306.847669 Cryp 30 d1ed0e52 e63f4a37 05f04e4f 0000009b 00000002 00000000 000f0000 10000035
+110306.847801 Cryp 30 11010350 040a00e0 2c010350 04ef0a01 01616263 64656667 68303132 33343536
+110306.847933 Cryp 30 37000000 00800200 02800500 02800600 01100000 2b010001 0000040a 00e02501
+110306.848064 Cryp 30 000004ef 01010103 1122aabb 80040002 80050002 80010001 8002003c 0000002b
+110306.848195 Cryp 30 01000100 00040a00 e0280100 0004ef01 01020333 44ccdd80 04000280 05000280
+110306.848281 Cryp 30 01000180 02003c00 
+110306.848359 Mesg 50 message_parse_payloads: offset 0x1c payload HASH
+110306.848431 Mesg 50 message_parse_payloads: offset 0x34 payload NONCE
+110306.848501 Mesg 50 message_parse_payloads: offset 0x48 payload SA
+110306.848587 Mesg 60 message_validate_payloads: payload SA at 0x81408c8 of message 0x8141570
+110306.848669 Mesg 70 DOI: 2
+110306.848741 Mesg 60 message_validate_payloads: payload HASH at 0x814089c of message 0x8141570
+110306.848821 Mesg 60 message_validate_payloads: payload NONCE at 0x81408b4 of message 0x8141570
+110306.848905 Exch 90 exchange_validate: checking for required HASH
+110306.848974 Exch 90 exchange_validate: checking for required NONCE
+110306.849041 Exch 90 exchange_validate: checking for required SA
+110306.849139 Exch 80 exchange_nonce: NONCE_r:
+110306.849666 Exch 80 29a5c670 d1ed0e52 e63f4a37 05f04e4f 
+110306.849812 Negt 90 group_check_hash: SKEYID_a:
+110306.849973 Negt 90 331d58dd b1ce66b8 0e8f8514 65fedc43 25b4cc63 
+110306.850125 Negt 90 group_check_hash: message_id:
+110306.850260 Negt 90 3cc1f923 
+110306.850383 Negt 90 group_check_hash: NONCE_I_b:
+110306.850536 Negt 90 7cb79b64 94c75a27 75653839 d80ff11c 
+110306.850671 Negt 90 group_check_hash: payloads after HASH:
+110306.850858 Negt 90 01000014 29a5c670 d1ed0e52 e63f4a37 05f04e4f 0000009b 00000002 00000000
+110306.851050 Negt 90 000f0000 10000035 11010350 040a00e0 2c010350 04ef0a01 01616263 64656667
+110306.851243 Negt 90 68303132 33343536 37000000 00800200 02800500 02800600 01100000 2b010001
+110306.851438 Negt 90 0000040a 00e02501 000004ef 01010103 1122aabb 80040002 80050002 80010001
+110306.851646 Negt 90 8002003c 0000002b 01000100 00040a00 e0280100 0004ef01 01020333 44ccdd80
+110306.851809 Negt 90 04000280 05000280 01000180 02003c
+110306.851952 Negt 80 group_check_hash: computed HASH:
+110306.852116 Negt 80 ab8df0ff 90e2c084 0bb2bd08 e1b1a328 8ec714b1 
+110306.852245 Default Payload type: 15
+
+110306.852499 Default group_handle_incoming_kek: Got SPI: abcdefgh01234567
+110306.852652 Default Payload type: 16
+
+110306.852789 Trpt 90 transport_reference: transport 0x8140e10 now has 2 references
+110306.852928 SA   80 sa_reference: SA 0x8141e48 now has 1 references
+110306.853054 SA   70 sa_enter: SA 0x8141e48 added to SA list
+110306.853180 SA   80 sa_reference: SA 0x8141e48 now has 2 references
+110306.853310 SA   60 sa_create: sa 0x8141e48 phase 2 added to exchange 0x8140fa8 (Group-1234)
+110306.853457 Default  SPI found (SA) 287484603 287484603 (0x1122aabb) for sa 0x8141e48
+110306.853605 Default Payload type: 16
+
+110306.853746 Trpt 90 transport_reference: transport 0x8140e10 now has 3 references
+110306.853885 SA   80 sa_reference: SA 0x8142040 now has 1 references
+110306.854011 SA   70 sa_enter: SA 0x8142040 added to SA list
+110306.854137 SA   80 sa_reference: SA 0x8142040 now has 2 references
+110306.854266 SA   60 sa_create: sa 0x8142040 phase 2 added to exchange 0x8140fa8 (Group-1234)
+110306.854413 Default  SPI found (SA) 860146909 860146909 (0x3344ccdd) for sa 0x8142040
+110306.854557 Cryp 50 crypto_update_iv: updated IV:
+110306.854714 Cryp 50 5775e24a e2ba0f20 
+110306.854840 Exch 40 exchange_run: exchange 0x8140fa8 finished step 1, advancing...
+110306.854989 Trpt 90 transport_reference: transport 0x8140e10 now has 4 references
+110306.855128 Mesg 90 message_alloc: allocated 0x81427e0
+110306.855257 SA   80 sa_reference: SA 0x8141220 now has 5 references
+110306.855395 Misc 90 group_do_hash: SKEYID_a:
+110306.855559 Misc 90 331d58dd b1ce66b8 0e8f8514 65fedc43 25b4cc63 
+110306.855713 Misc 90 group_do_hash: message_id:
+110306.855849 Misc 90 3cc1f923 
+110306.855969 Negt 90 group_fill_in_hash: NONCE_I_b:
+110306.856123 Negt 90 7cb79b64 94c75a27 75653839 d80ff11c 
+110306.856246 Negt 90 group_fill_in_hash: NONCE_R_b:
+110306.856401 Negt 90 29a5c670 d1ed0e52 e63f4a37 05f04e4f 
+110306.856535 Misc 80 group_fill_in_hash: HASH:
+110306.856712 Misc 80 8cdfdb9b 6b7d631d 08a1799b a08201e1 c34856be 
+110306.856837 Exch 90 exchange_validate: checking for required HASH
+110306.856969 Cryp 10 crypto_encrypt: before encryption:
+110306.857140 Cryp 10 00000018 8cdfdb9b 6b7d631d 08a1799b a08201e1 c34856be 
+110306.857281 Cryp 30 crypto_encrypt: after encryption:
+110306.857453 Cryp 30 e5a63e6e ac3f1e35 6f4b7c2b 412b1b0a 129284eb 5a959d47 
+110306.857591 Cryp 50 crypto_update_iv: updated IV:
+110306.857733 Cryp 50 129284eb 5a959d47 
+110306.857856 Mesg 70 message_send: message 0x81427e0
+110306.858001 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110306.858142 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110306.858267 Mesg 70 NEXT_PAYLOAD: HASH
+110306.858398 Mesg 70 VERSION: 16
+110306.858523 Mesg 70 EXCH_TYPE: QUICK_MODE
+110306.858664 Mesg 70 FLAGS: [ ENC ]
+110306.858800 Mesg 70 MESSAGE_ID: 0x3cc1f923
+110306.858929 Mesg 70 LENGTH: 52
+110306.859115 Mesg 70 message_send: 957e3b86 f602b129 232f5e1e 4f192e67 08102001 3cc1f923 00000034 e5a63e6e
+110306.859273 Mesg 70 message_send: ac3f1e35 6f4b7c2b 412b1b0a 129284eb 5a959d47 
+110306.859348 Exch 40 exchange_run: exchange 0x8140fa8 finished step 2, advancing...
+110306.859422 Trpt 90 transport_reference: transport 0x8140e10 now has 5 references
+110306.859492 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110306.859559 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110306.859644 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110306.859713 Trpt 90 transport_release: transport 0x8140e10 had 5 references
+110306.859777 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110306.859838 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110306.859902 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110306.860012 Trpt 90 transport_reference: transport 0x8140e10 now has 5 references
+110306.860083 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110306.860151 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110306.860219 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110306.860379 Misc 60 conf_get_str: [General]:retransmits->5
+110306.860492 Trpt 30 transport_send_messages: message 0x81427e0 scheduled for retransmission 1 in 7 secs
+110306.860591 Timr 10 timer_add_event: event message_send_expire(0x81427e0) added before sa_soft_expire(0x8141220), expiration in 7s
+110306.860666 Trpt 90 transport_release: transport 0x8140e10 had 5 references
+110306.860731 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110306.860793 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110306.860856 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110307.960741 Trpt 70 transport_add: adding 0x8140f30
+110307.960868 Trpt 90 transport_reference: transport 0x8140f30 now has 1 references
+110307.960948 Mesg 90 message_alloc: allocated 0x8143020
+110307.961015 Mesg 70 message_recv: message 0x8143020
+110307.961101 Mesg 70 ICOOKIE: 0x957e3b86f602b129
+110307.961199 Mesg 70 RCOOKIE: 0x232f5e1e4f192e67
+110307.961268 Mesg 70 NEXT_PAYLOAD: HASH
+110307.961350 Mesg 70 VERSION: 16
+110307.961420 Mesg 70 EXCH_TYPE: QUICK_MODE
+110307.961490 Mesg 70 FLAGS: [ ENC ]
+110307.961565 Mesg 70 MESSAGE_ID: 0x3cc1f923
+110307.961633 Mesg 70 LENGTH: 420
+110307.961758 Mesg 70 message_recv: 957e3b86 f602b129 232f5e1e 4f192e67 08102001 3cc1f923 000001a4 79ae952f
+110307.961890 Mesg 70 message_recv: ad84e030 8270f4af e8202ede 799ef945 2f388c45 a32da016 2e55e36d a4d1bc2d
+110307.962024 Mesg 70 message_recv: 9bb5c80c 0df793bb 1c2ac84b 17be4d2f bb6aae57 990128ec e715379f 1cae1319
+110307.962177 Mesg 70 message_recv: b8ded5f4 328e7299 d07a022c f5a8e948 e5d1d4f4 f6a57249 bd47df71 d90fcc72
+110307.962311 Mesg 70 message_recv: 6dedeca2 230507f5 6cf00a40 cf517ac0 316a1452 66861dbb 163160d4 668393d3
+110307.962458 Mesg 70 message_recv: a971d546 880df7b4 cc7e6167 d67a9ea1 99f47752 2f648690 9fca3c8c 470b6f43
+110307.962590 Mesg 70 message_recv: 9372997b 442069ec eb1cec3e 7e4bdea7 29bded12 c11bd36b ee4150b3 b82572d7
+110307.962723 Mesg 70 message_recv: f436ab72 148359e6 09a186e3 e3c00460 f731efcc bc495f0d 5b1840ff a43c0219
+110307.962855 Mesg 70 message_recv: efcbf588 df8e92e4 45c1dbd1 4c4d5f43 0bd645a8 25380149 7c9d0ecf ee9f62a6
+110307.962988 Mesg 70 message_recv: 50fb753f 60cf6850 d210072a 2412edf6 93133d3b 34512592 42a99668 4b717b16
+110307.963121 Mesg 70 message_recv: 6dab53a4 2fb90e79 e445a966 0f40dd49 7bff6de0 07183e33 6b084cbc 3d27c408
+110307.963274 Mesg 70 message_recv: bdfd22f7 998d747b c9378219 06d18e5c 66a8d8b3 bdb558c0 7b4e337b 770cae85
+110307.963529 Mesg 70 message_recv: 64793743 0b34e53e 7a300725 f83ac828 a9c58cab 3a4273f0 3c49f894 0766198a
+110307.963626 Mesg 70 message_recv: 5b6b449b 
+110307.963701 SA   80 sa_reference: SA 0x8141220 now has 6 references
+110307.963771 Mesg 90 message_check_duplicate: last_received 0x8141570
+110307.963836 Mesg 95 message_check_duplicate: last_received:
+110307.963959 Mesg 95 957e3b86 f602b129 232f5e1e 4f192e67 08102001 3cc1f923 000000e4 922da769
+110307.964089 Mesg 95 d9014a10 21861bdb e9231aa2 415cffe6 f1dfae01 b2d03ea5 c81f6936 4375540c
+110307.964234 Mesg 95 8aeae663 2eabfbb5 b07622ea 9440a426 6aeffb61 b5e6841c 4f7b1f27 f30640a3
+110307.964378 Mesg 95 5983a88d 5bf90a28 44de2c7a d858d7e0 c2b9c536 86c26748 23ec6f56 29d56f0f
+110307.964511 Mesg 95 7e035eb2 10566be2 9bcc7605 032f2ab2 15a7b307 61ca1f88 1e061cb9 757a3144
+110307.964640 Mesg 95 2bdb87e6 aacbdfaa 3b6ab0ce b9979ea0 f661cc53 826b987a 957bbdc6 94f3a089
+110307.964769 Mesg 95 1a0b3f05 b03b04d0 8b193751 3a89c43a b8161452 7ccf4144 391a041c 5775e24a
+110307.964847 Mesg 95 e2ba0f20 
+110307.964911 Mesg 20 message_free: freeing 0x81427e0
+110307.964981 Timr 10 timer_remove_event: removing event message_send_expire(0x81427e0)
+110307.965060 Trpt 90 transport_release: transport 0x8140e10 had 4 references
+110307.965146 SA   80 sa_release: SA 0x8141220 had 6 references
+110307.965216 SA   80 sa_release: SA 0x8141220 now has 5 references (sa_release)
+110307.965284 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110307.965376 Cryp 10 crypto_decrypt: before decryption:
+110307.965503 Cryp 10 79ae952f ad84e030 8270f4af e8202ede 799ef945 2f388c45 a32da016 2e55e36d
+110307.965634 Cryp 10 a4d1bc2d 9bb5c80c 0df793bb 1c2ac84b 17be4d2f bb6aae57 990128ec e715379f
+110307.965762 Cryp 10 1cae1319 b8ded5f4 328e7299 d07a022c f5a8e948 e5d1d4f4 f6a57249 bd47df71
+110307.965890 Cryp 10 d90fcc72 6dedeca2 230507f5 6cf00a40 cf517ac0 316a1452 66861dbb 163160d4
+110307.966017 Cryp 10 668393d3 a971d546 880df7b4 cc7e6167 d67a9ea1 99f47752 2f648690 9fca3c8c
+110307.966165 Cryp 10 470b6f43 9372997b 442069ec eb1cec3e 7e4bdea7 29bded12 c11bd36b ee4150b3
+110307.966296 Cryp 10 b82572d7 f436ab72 148359e6 09a186e3 e3c00460 f731efcc bc495f0d 5b1840ff
+110307.966440 Cryp 10 a43c0219 efcbf588 df8e92e4 45c1dbd1 4c4d5f43 0bd645a8 25380149 7c9d0ecf
+110307.966569 Cryp 10 ee9f62a6 50fb753f 60cf6850 d210072a 2412edf6 93133d3b 34512592 42a99668
+110307.966697 Cryp 10 4b717b16 6dab53a4 2fb90e79 e445a966 0f40dd49 7bff6de0 07183e33 6b084cbc
+110307.966825 Cryp 10 3d27c408 bdfd22f7 998d747b c9378219 06d18e5c 66a8d8b3 bdb558c0 7b4e337b
+110307.966952 Cryp 10 770cae85 64793743 0b34e53e 7a300725 f83ac828 a9c58cab 3a4273f0 3c49f894
+110307.967037 Cryp 10 0766198a 5b6b449b 
+110307.967260 Cryp 30 crypto_decrypt: after decryption:
+110307.967401 Cryp 30 12000018 a97be846 efffb19c 1d48ebc1 f6341084 e6e1ec15 11000008 00000000
+110307.967535 Cryp 30 00000161 00030000 020000df 10616263 64656667 68303132 33343536 37000100
+110307.967662 Cryp 30 20495649 56495649 56414243 44454647 48494a4b 4c4d4e4f 50515253 54555657
+110307.967793 Cryp 30 58000200 a230819f 300d0609 2a864886 f70d0101 01050003 818d0030 81890281
+110307.967921 Cryp 30 8100be25 5ebdc6e5 fa2d7c56 e0345ae0 32a256c1 5a47edfc d0e005a2 9a69cdfd
+110307.968050 Cryp 30 627bb80c 67f6fa8f 1d54835e 944df0d7 3e0152d0 08a9c238 c9f3cea0 07d98e0d
+110307.968197 Cryp 30 08eee41c b54d9a02 ba92c47b d2bf296d 924d3209 23b53a5c 9aa9b1a6 7fdb3705
+110307.968328 Cryp 30 7bb08766 500d8a32 ffade1dc e8ba4d05 c909feef e1201421 5bb76d4c e7abea1c
+110307.968474 Cryp 30 020f0203 01000101 00003d04 1122aabb 00010018 41424344 45464748 494a4b4c
+110307.968602 Cryp 30 4d4e4f50 51525354 55565758 00020014 31323334 35363738 39303132 33343536
+110307.968732 Cryp 30 37383930 0100003d 043344cc dd000100 18464544 43424131 314c4b4a 49484732
+110307.968860 Cryp 30 32525150 4f4e4d33 33000200 14303132 33343536 37383930 31323334 35363738
+110307.968946 Cryp 30 39000000 00000000 
+110307.969024 Mesg 50 message_parse_payloads: offset 0x1c payload HASH
+110307.969096 Mesg 50 message_parse_payloads: offset 0x34 payload SEQ
+110307.969544 Mesg 50 message_parse_payloads: offset 0x3c payload KD
+110307.969625 Mesg 60 message_validate_payloads: payload HASH at 0x8142144 of message 0x8143020
+110307.969699 Mesg 60 message_validate_payloads: payload KD at 0x8142164 of message 0x8143020
+110307.969771 Mesg 70 NUM_PACKETS: 3
+110307.969837 Mesg 60 message_validate_payloads: payload SEQ at 0x814215c of message 0x8143020
+110307.969908 Mesg 70 SEQ_NUM: 0
+110307.969978 Exch 90 exchange_validate: checking for required HASH
+110307.970042 Exch 90 exchange_validate: checking for required KD
+110307.970109 Negt 90 group_check_hash: SKEYID_a:
+110307.970229 Negt 90 331d58dd b1ce66b8 0e8f8514 65fedc43 25b4cc63 
+110307.970318 Negt 90 group_check_hash: message_id:
+110307.970404 Negt 90 3cc1f923 
+110307.970463 Negt 90 group_check_hash: NONCE_I_b:
+110307.970552 Negt 90 7cb79b64 94c75a27 75653839 d80ff11c 
+110307.970612 Negt 90 group_check_hash: NONCE_R_b:
+110307.970702 Negt 90 29a5c670 d1ed0e52 e63f4a37 05f04e4f 
+110307.970764 Negt 90 group_check_hash: payloads after HASH:
+110307.970885 Negt 90 11000008 00000000 00000161 00030000 020000df 10616263 64656667 68303132
+110307.971009 Negt 90 33343536 37000100 20495649 56495649 56414243 44454647 48494a4b 4c4d4e4f
+110307.971152 Negt 90 50515253 54555657 58000200 a230819f 300d0609 2a864886 f70d0101 01050003
+110307.971279 Negt 90 818d0030 81890281 8100be25 5ebdc6e5 fa2d7c56 e0345ae0 32a256c1 5a47edfc
+110307.971415 Negt 90 d0e005a2 9a69cdfd 627bb80c 67f6fa8f 1d54835e 944df0d7 3e0152d0 08a9c238
+110307.971541 Negt 90 c9f3cea0 07d98e0d 08eee41c b54d9a02 ba92c47b d2bf296d 924d3209 23b53a5c
+110307.971666 Negt 90 9aa9b1a6 7fdb3705 7bb08766 500d8a32 ffade1dc e8ba4d05 c909feef e1201421
+110307.971793 Negt 90 5bb76d4c e7abea1c 020f0203 01000101 00003d04 1122aabb 00010018 41424344
+110307.971916 Negt 90 45464748 494a4b4c 4d4e4f50 51525354 55565758 00020014 31323334 35363738
+110307.972040 Negt 90 39303132 33343536 37383930 0100003d 043344cc dd000100 18464544 43424131
+110307.972181 Negt 90 314c4b4a 49484732 32525150 4f4e4d33 33000200 14303132 33343536 37383930
+110307.972265 Negt 90 31323334 35363738 39
+110307.972362 Negt 80 group_check_hash: computed HASH:
+110307.972464 Negt 80 a97be846 efffb19c 1d48ebc1 f6341084 e6e1ec15 
+110307.972527 Default GOT SEQ # of: 0 (PULL)
+110307.972590 Default GOT # of packets: 3
+110307.972651 Default Found a KEK secrecy attribute
+110307.972733 Default Found a KEK signature attribute
+110307.973199 Default gdoi_rekey_listen: Setting up rekey listener!
+110307.973393 Misc 60 conf_get_str: [General]:Listen-on->10.0.224.37
+110307.974028 Trpt 70 transport_add: adding 0x8142ce0
+110307.974108 Trpt 90 transport_reference: transport 0x8142ce0 now has 1 references
+110307.974205 Default  SPI found (KD) 287484603 287484603 (0x1122aabb) for sa 0x8141e48
+110307.974273 Default Found a secrecy attribute
+110307.974349 Default Found an integrity attribute
+110307.974430 Default  SPI found (KD) 860146909 860146909 (0x3344ccdd) for sa 0x8142040
+110307.974498 Default Found a secrecy attribute
+110307.974558 Default Found an integrity attribute
+110307.974635 Mesg 20 message_free: freeing 0x8141570
+110307.974710 Trpt 90 transport_release: transport 0x8140e10 had 3 references
+110307.974776 SA   80 sa_release: SA 0x8141220 had 5 references
+110307.974840 SA   80 sa_release: SA 0x8141220 now has 4 references (sa_release)
+110307.974903 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110307.974966 Cryp 50 crypto_update_iv: updated IV:
+110307.975042 Cryp 50 0766198a 5b6b449b 
+110307.975114 Exch 10 exchange_finalize: 0x8140fa8 Group-1234 Default-group-mode policy initiator phase 2 doi 2 exchange 32 step 3
+110307.975210 Exch 10 exchange_finalize: icookie 957e3b86f602b129 rcookie 232f5e1e4f192e67
+110307.975286 Exch 10 exchange_finalize: msgid 3cc1f923 sa_list 0x8141e48 0x8142040 
+110307.975495 SA   90 sa_find: no SA matched query
+110307.975600 Misc 60 conf_get_str: configuration value not found [Group-1234]:Flags
+110307.975687 Exch 30 checking whether new SA replaces existing SA with IDs <no id> <no id>
+110308.091533 SA   90 sa_find: return SA 0x8141e48
+110308.091613 SA   60 sa_mark_replaced: SA 0x8141e48 (Group-1234) marked as replaced
+110308.091681 SA   90 sa_find: no SA matched query
+110308.091751 Misc 60 conf_get_str: configuration value not found [Group-1234]:Flags
+110308.091838 Exch 50 gdoi_finalize_exchange: src a00e025 ffffffff dst ef010101 ffffffff
+110308.091909 SA   90 sa_find: no SA matched query
+110308.091978 Exch 50 gdoi_finalize_exchange: src a00e028 ffffffff dst ef010102 ffffffff
+110308.092046 SA   90 sa_find: no SA matched query
+110308.092107 Exch 50 gdoi_finalize_exchange: DONE WITH PHASE 2!!!
+
+110308.092201 SA   80 sa_release: SA 0x8141e48 had 2 references
+110308.092268 SA   80 sa_release: SA 0x8141e48 now has 1 references (sa_release)
+110308.092343 SA   80 sa_release: SA 0x8141e48 returning without freeing SA
+110308.092413 SA   80 sa_release: SA 0x8142040 had 2 references
+110308.092478 SA   80 sa_release: SA 0x8142040 now has 1 references (sa_release)
+110308.092542 SA   80 sa_release: SA 0x8142040 returning without freeing SA
+110308.092608 Timr 10 timer_remove_event: removing event exchange_free_aux(0x8140fa8)
+110308.092678 Exch 80 exchange_free_aux: freeing exchange 0x8140fa8
+110308.092742 Mesg 20 message_free: freeing 0x8143020
+110308.092811 Trpt 90 transport_release: transport 0x8140f30 had 1 references
+110308.092876 Trpt 70 transport_release: freeing 0x8140f30
+110308.092941 SA   80 sa_release: SA 0x8141220 had 4 references
+110308.093006 SA   80 sa_release: SA 0x8141220 now has 3 references (sa_release)
+110308.093068 SA   80 sa_release: SA 0x8141220 returning without freeing SA
+110308.093166 Trpt 90 transport_reference: transport 0x8142ce0 now has 2 references
+110308.093240 Trpt 90 transport_reference: transport 0x8140e10 now has 3 references
+110308.093319 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110308.093390 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110308.093458 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110308.093527 Trpt 90 transport_release: transport 0x8142ce0 had 2 references
+110308.093589 Trpt 90 transport_release: transport 0x8140e10 had 3 references
+110308.093651 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110308.093713 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110308.093776 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110338.072827 Default rekey_udp_handle_message: GOT A REKEY MESSAGE!!!
+110338.073019 Trpt 90 transport_reference: transport 0x8142ce0 now has 2 references
+110338.073103 Mesg 90 message_alloc: allocated 0x81413c8
+110338.073169 Mesg 70 message_recv: message 0x81413c8
+110338.073253 Mesg 70 ICOOKIE: 0x6162636465666768
+110338.073335 Mesg 70 RCOOKIE: 0x3031323334353637
+110338.073405 Mesg 70 NEXT_PAYLOAD: SEQ
+110338.073474 Mesg 70 VERSION: 16
+110338.073541 Mesg 70 EXCH_TYPE: NEW_GROUP_MODE
+110338.073611 Mesg 70 FLAGS: [ ENC ]
+110338.073686 Mesg 70 MESSAGE_ID: 0x00000000
+110338.073753 Mesg 70 LENGTH: 404
+110338.073879 Mesg 70 message_recv: 61626364 65666768 30313233 34353637 12102101 00000000 00000194 5175e4fc
+110338.074023 Mesg 70 message_recv: 59135cf4 2973b12d 1d6abd59 e4b40f93 c2f6ff08 4688feab a0d3566e fc0b62f0
+110338.074156 Mesg 70 message_recv: 1e3e69ca 9fb4f1ea fd2347f1 e87344a1 9533f966 11c29229 e610f717 8deb7458
+110338.074286 Mesg 70 message_recv: 5e9d3117 32dc8cb5 15dbd797 4955e843 6e97e8a7 ec9559a2 17c06a9d 421fb6ca
+110338.074418 Mesg 70 message_recv: 34bb6261 d5c91b6f 939a166d 08a3ec17 0007a8b2 c7192039 2e0f77bc 609e6d60
+110338.074548 Mesg 70 message_recv: 7844abdb 4142992e 874acd1e 2085252f b0a02ad5 12385f5b 47cb0885 864c1961
+110338.074680 Mesg 70 message_recv: c41fdbf5 b70501ac 48d0e2b2 9c0b2629 70d08853 91bc60a4 bd123aba dd268a88
+110338.074812 Mesg 70 message_recv: 24370f99 c5c64315 d3d6cb00 4c91cdc8 a5363dde 5a052936 b6445696 45d6273c
+110338.074944 Mesg 70 message_recv: 497a9935 cdd30202 5f17d68c 83a9990c 35e7725d 041fa88f 1393e50f 99a12222
+110338.075084 Mesg 70 message_recv: 336bb521 6166b2c8 94c9413a ea238054 d632e468 79ce7bdc a9c67d29 aaac3453
+110338.075217 Mesg 70 message_recv: b82ff88c d40087cc 5e9627d0 206b750f c413126b 612f7d66 56229d51 c9a4a701
+110338.075348 Mesg 70 message_recv: ddcc12a2 25e1b721 3086ad89 4fe47db8 b7249b55 be26bddf 112705a3 2065156c
+110338.075457 Mesg 70 message_recv: e84f46a5 0b86b382 4bde6bf4 7a601cc4 c70fdfab 
+110338.075564 Cryp 40 crypto_init: key:
+110338.075677 Cryp 40 41424344 45464748 494a4b4c 4d4e4f50 51525354 55565758 
+110338.075762 Cryp 50 crypto_update_iv: initialized IV:
+110338.075841 Cryp 50 49564956 49564956 
+110338.075903 Cryp 10 rekey_crypto_decrypt: before decryption:
+110338.076038 Cryp 10 5175e4fc 59135cf4 2973b12d 1d6abd59 e4b40f93 c2f6ff08 4688feab a0d3566e
+110338.076201 Cryp 10 fc0b62f0 1e3e69ca 9fb4f1ea fd2347f1 e87344a1 9533f966 11c29229 e610f717
+110338.076325 Cryp 10 8deb7458 5e9d3117 32dc8cb5 15dbd797 4955e843 6e97e8a7 ec9559a2 17c06a9d
+110338.076450 Cryp 10 421fb6ca 34bb6261 d5c91b6f 939a166d 08a3ec17 0007a8b2 c7192039 2e0f77bc
+110338.076577 Cryp 10 609e6d60 7844abdb 4142992e 874acd1e 2085252f b0a02ad5 12385f5b 47cb0885
+110338.076701 Cryp 10 864c1961 c41fdbf5 b70501ac 48d0e2b2 9c0b2629 70d08853 91bc60a4 bd123aba
+110338.076830 Cryp 10 dd268a88 24370f99 c5c64315 d3d6cb00 4c91cdc8 a5363dde 5a052936 b6445696
+110338.076957 Cryp 10 45d6273c 497a9935 cdd30202 5f17d68c 83a9990c 35e7725d 041fa88f 1393e50f
+110338.077090 Cryp 10 99a12222 336bb521 6166b2c8 94c9413a ea238054 d632e468 79ce7bdc a9c67d29
+110338.077219 Cryp 10 aaac3453 b82ff88c d40087cc 5e9627d0 206b750f c413126b 612f7d66 56229d51
+110338.077344 Cryp 10 c9a4a701 ddcc12a2 25e1b721 3086ad89 4fe47db8 b7249b55 be26bddf 112705a3
+110338.077456 Cryp 10 2065156c e84f46a5 0b86b382 4bde6bf4 7a601cc4 c70fdfab 
+110338.077661 Cryp 30 rekey_crypto_decrypt: after decryption:
+110338.077791 Cryp 30 01000008 00000001 11000066 00000002 00000000 00100000 1000002b 01000100
+110338.077920 Cryp 30 00040a00 e0250100 0004ef01 0101032e 22fbb780 04000280 05000280 01000180
+110338.078060 Cryp 30 02003c00 00002b01 00010000 040a00e0 28010000 04ef0101 02032123 d5f28004
+110338.078188 Cryp 30 00028005 00028001 00018002 003c0900 00820002 00000100 003d042e 22fbb700
+110338.078312 Cryp 30 01001805 4ab45cf1 80cf16ec 5d691cd9 aecf3f67 68850f33 ccb11100 02001499
+110338.078437 Cryp 30 46932950 584877a3 394974e3 d2a04f14 2c1d6b01 00003d04 2123d5f2 00010018
+110338.078560 Cryp 30 d367b868 d95d7f3f 345ae02a f74f7932 5e945454 a0dfef4d 00020014 10815b13
+110338.078683 Cryp 30 a8274909 f6f8cd0d 05b1d752 94638a2e 00000084 5a657fbe c82c5da5 fd9e3c3c
+110338.078807 Cryp 30 e9d5af82 3e6bf6cc baf45c95 cbbdb17f ba5a6f56 d12c2edf 49a3940a 41b5dbb8
+110338.078930 Cryp 30 810e0596 f461db53 9ff42a4c 30cadf8f c0edbafc a9c60cff 04ef0eb7 49c1953d
+110338.079070 Cryp 30 1f12c96f 508e488f ec42e0cb 78394ed2 bc754cb4 db57ed38 c3697c22 92f47888
+110338.079182 Cryp 30 df72b4c3 9e6c4a2a 569abd9c 3a9950e5 c7119019 00000000 
+110338.079256 Mesg 50 message_parse_payloads: offset 0x1c payload SEQ
+110338.079323 Mesg 50 message_parse_payloads: offset 0x24 payload SA
+110338.079390 Mesg 50 message_parse_payloads: offset 0x8a payload KD
+110338.079458 Mesg 50 message_parse_payloads: offset 0x10c payload SIG
+110338.079529 Mesg 60 message_validate_payloads: payload SA at 0x8142804 of message 0x81413c8
+110338.079602 Mesg 70 DOI: 2
+110338.079672 Trpt 90 transport_reference: transport 0x8142ce0 now has 3 references
+110338.079748 SA   80 sa_reference: SA 0x81422d0 now has 1 references
+110338.079811 SA   70 sa_enter: SA 0x81422d0 added to SA list
+110338.079874 SA   80 sa_reference: SA 0x81422d0 now has 2 references
+110338.079939 SA   60 sa_create: sa 0x81422d0 phase 1 added to exchange 0x8140fa8 (<unnamed>)
+110338.080025 Mesg 60 message_validate_payloads: payload SIG at 0x81428ec of message 0x81413c8
+110338.080101 Mesg 60 message_validate_payloads: payload KD at 0x814286a of message 0x81413c8
+110338.080172 Mesg 70 NUM_PACKETS: 2
+110338.080238 Mesg 60 message_validate_payloads: payload SEQ at 0x81427fc of message 0x81413c8
+110338.080308 Mesg 70 SEQ_NUM: 1
+110338.080375 SA   80 sa_release: SA 0x81422d0 had 2 references
+110338.080438 SA   80 sa_release: SA 0x81422d0 now has 1 references (sa_release)
+110338.080500 SA   80 sa_release: SA 0x81422d0 returning without freeing SA
+110338.080565 Exch 90 exchange_validate: checking for required SEQ
+110338.080627 Exch 90 exchange_validate: checking for required SA
+110338.080687 Exch 90 exchange_validate: checking for required KD
+110338.080747 Exch 90 exchange_validate: checking for required SIG
+110338.080811 Misc 30 gdoi_responder: phase 1 exchange 33 step 0
+110338.080880 Misc 90 responder_recv_SEQ_SA_KD_SIG: 'rekey':
+110338.080950 Misc 90 72656b65 79
+110338.081019 Misc 90 responder_recv_SEQ_SA_KD_SIG: packet before SIG payload:
+110338.081142 Misc 90 61626364 65666768 30313233 34353637 12102101 00000000 00000190 01000008
+110338.081269 Misc 90 00000001 11000066 00000002 00000000 00100000 1000002b 01000100 00040a00
+110338.081395 Misc 90 e0250100 0004ef01 0101032e 22fbb780 04000280 05000280 01000180 02003c00
+110338.081520 Misc 90 00002b01 00010000 040a00e0 28010000 04ef0101 02032123 d5f28004 00028005
+110338.081646 Misc 90 00028001 00018002 003c0900 00820002 00000100 003d042e 22fbb700 01001805
+110338.081769 Misc 90 4ab45cf1 80cf16ec 5d691cd9 aecf3f67 68850f33 ccb11100 02001499 46932950
+110338.081894 Misc 90 584877a3 394974e3 d2a04f14 2c1d6b01 00003d04 2123d5f2 00010018 d367b868
+110338.082029 Misc 90 d95d7f3f 345ae02a f74f7932 5e945454 a0dfef4d 00020014 10815b13 a8274909
+110338.082119 Misc 90 f6f8cd0d 05b1d752 94638a2e 
+110338.082202 Negt 80 responder_recv_SEQ_SA_KD_SIG: computed hash:
+110338.082301 Negt 80 6414d488 0adb58b2 effeb540 7c9a5873 acddf9e5 
+110338.083582 Negt 80 responder_recv_SEQ_SA_KD_SIG: decrypted hash:
+110338.083692 Negt 80 6414d488 0adb58b2 effeb540 7c9a5873 acddf9e5 
+110338.084204 Default GOT SEQ # of: 1 (PUSH)
+110338.084279 Default Payload type: 16
+
+110338.084353 Trpt 90 transport_reference: transport 0x8142ce0 now has 4 references
+110338.084426 SA   80 sa_reference: SA 0x8140880 now has 1 references
+110338.084490 SA   70 sa_enter: SA 0x8140880 added to SA list
+110338.084553 SA   80 sa_reference: SA 0x8140880 now has 2 references
+110338.084618 SA   60 sa_create: sa 0x8140880 phase 1 added to exchange 0x8140fa8 (Group-1234)
+110338.084701 Default  SPI found (SA) 774044599 774044599 (0x2e22fbb7) for sa 0x8140880
+110338.084774 Default Payload type: 16
+
+110338.084845 Trpt 90 transport_reference: transport 0x8142ce0 now has 5 references
+110338.084918 SA   80 sa_reference: SA 0x8142bf8 now has 1 references
+110338.084981 SA   70 sa_enter: SA 0x8142bf8 added to SA list
+110338.085061 SA   80 sa_reference: SA 0x8142bf8 now has 2 references
+110338.085127 SA   60 sa_create: sa 0x8142bf8 phase 1 added to exchange 0x8140fa8 (Group-1234)
+110338.085206 Default  SPI found (SA) 555996658 555996658 (0x2123d5f2) for sa 0x8142bf8
+110338.085278 Default GOT # of packets: 2
+110338.085345 Default  SPI found (KD) 774044599 774044599 (0x2e22fbb7) for sa 0x8140880
+110338.085413 Default Found a secrecy attribute
+110338.085475 Default Found an integrity attribute
+110338.085551 Default  SPI found (KD) 555996658 555996658 (0x2123d5f2) for sa 0x8142bf8
+110338.085619 Default Found a secrecy attribute
+110338.085680 Default Found an integrity attribute
+110338.085756 Cryp 50 crypto_update_iv: updated IV:
+110338.085834 Cryp 50 7a601cc4 c70fdfab 
+110338.085906 Exch 10 exchange_finalize: 0x8140fa8 Group-1234 <no policy> policy responder phase 1 doi 2 exchange 33 step 0
+110338.085981 Exch 10 exchange_finalize: icookie 6162636465666768 rcookie 3031323334353637
+110338.086066 Exch 10 exchange_finalize: msgid 00000000 
+110338.086136 SA   90 sa_find: no SA matched query
+110338.086208 Misc 60 conf_get_str: configuration value not found [Group-1234]:Flags
+110338.086293 Exch 30 checking whether new SA replaces existing SA with IDs <no id> <no id>
+110338.086369 SA   90 sa_find: return SA 0x8140880
+110338.086434 SA   60 sa_mark_replaced: SA 0x8140880 (Group-1234) marked as replaced
+110338.086501 SA   90 sa_find: no SA matched query
+110338.086568 Misc 60 conf_get_str: configuration value not found [Group-1234]:Flags
+110338.086666 Exch 10 exchange_finalize: phase 1 done: initiator id <no id>, responder id <no id>, src: 239.10.1.1 dst: 10.0.224.44
+110338.086749 Exch 50 gdoi_finalize_exchange: src a00e025 ffffffff dst ef010101 ffffffff
+110338.086820 SA   90 sa_find: no SA matched query
+110338.086888 Exch 50 gdoi_finalize_exchange: src a00e028 ffffffff dst ef010102 ffffffff
+110338.086958 SA   90 sa_find: return SA 0x8142040
+110338.087037 SA   60 sa_mark_replaced: SA 0x8142040 (Group-1234) marked as replaced
+110338.087104 SA   90 sa_find: no SA matched query
+110338.087164 Exch 50 gdoi_finalize_exchange: DONE WITH REKEY (RECEIVE)!!!
+
+110338.087233 SA   70 sa_remove: SA 0x81422d0 removed from SA list
+110338.087296 SA   80 sa_release: SA 0x81422d0 had 1 references
+110338.087358 SA   80 sa_release: SA 0x81422d0 now has 0 references (sa_release)
+110338.087418 SA   60 sa_release: freeing SA 0x81422d0
+110338.087484 Trpt 90 transport_release: transport 0x8142ce0 had 5 references
+110338.087552 Trpt 90 transport_release: transport 0x8142ce0 had 4 references
+110338.087620 Trpt 90 transport_reference: transport 0x8142ce0 now has 4 references
+110338.087690 Trpt 90 transport_reference: transport 0x8140e10 now has 3 references
+110338.087758 Trpt 90 transport_reference: transport 0x8141378 now has 2 references
+110338.087826 Trpt 90 transport_reference: transport 0x81401c0 now has 2 references
+110338.087894 Trpt 90 transport_reference: transport 0x8140170 now has 2 references
+110338.087962 Trpt 90 transport_release: transport 0x8142ce0 had 4 references
+110338.088038 Trpt 90 transport_release: transport 0x8140e10 had 3 references
+110338.088102 Trpt 90 transport_release: transport 0x8141378 had 2 references
+110338.204872 Trpt 90 transport_release: transport 0x81401c0 had 2 references
+110338.204952 Trpt 90 transport_release: transport 0x8140170 had 2 references
+110343.908786 Default gdoid: shutting down...
+110343.908912 SA   90 sa_find: return SA 0x8142040
+110343.908987 SA   90 sa_find: return SA 0x8142bf8
+110343.909085 Misc 60 conf_get_str: [General]:Exchange-max-time->120
+110343.909182 Timr 10 timer_add_event: event exchange_free_aux(0x8142ed8) added before cookie_reset_event((nil)), expiration in 120s
+110343.909272 Exch 10 exchange_establish_p2: 0x8142ed8 <unnamed> <no policy> policy initiator phase 2 doi 2 exchange 5 step 0
+110343.909352 Exch 10 exchange_establish_p2: icookie 6162636465666768 rcookie 3031323334353637
+110343.909424 Exch 10 exchange_establish_p2: msgid be150118 sa_list 
+110343.909509 Trpt 90 transport_reference: transport 0x8142ce0 now has 4 references
+110343.909584 Mesg 90 message_alloc: allocated 0x81431b8
+110343.909649 SA   80 sa_reference: SA 0x8142bf8 now has 3 references
+110343.909721 Default exchange_run: doi->initiator (0x81431b8) failed
+110343.909799 Mesg 20 message_free: freeing 0x81431b8
+110343.909874 Trpt 90 transport_release: transport 0x8142ce0 had 4 references
+110343.909939 SA   80 sa_release: SA 0x8142bf8 had 3 references
+110343.910002 SA   80 sa_release: SA 0x8142bf8 now has 2 references (sa_release)
+110343.910064 SA   80 sa_release: SA 0x8142bf8 returning without freeing SA
+110343.910137 SA   70 sa_remove: SA 0x8142040 removed from SA list
+110343.910201 SA   80 sa_release: SA 0x8142040 had 1 references
+110343.910264 SA   80 sa_release: SA 0x8142040 now has 0 references (sa_release)
+110343.910326 SA   60 sa_release: freeing SA 0x8142040
+110343.910398 Exch 50 gdoi_delete_spi: Asked to delete SPI for src a00e028 ffffffff dst ef010102 ffffffff
+110343.910468 Misc 90 proto_free: freeing 0x813e568
+110343.910535 Trpt 90 transport_release: transport 0x8140e10 had 2 references
+110343.910601 SA   90 sa_find: return SA 0x8141e48
+110343.910662 SA   90 sa_find: return SA 0x8142bf8
+110343.910740 Misc 60 conf_get_str: [General]:Exchange-max-time->120
+110343.910836 Timr 10 timer_add_event: event exchange_free_aux(0x8142128) added before cookie_reset_event((nil)), expiration in 120s
+110343.910922 Exch 10 exchange_establish_p2: 0x8142128 <unnamed> <no policy> policy initiator phase 2 doi 2 exchange 5 step 0
+110343.910999 Exch 10 exchange_establish_p2: icookie 6162636465666768 rcookie 3031323334353637
+110343.911067 Exch 10 exchange_establish_p2: msgid 61a85b23 sa_list 
+110343.911143 Trpt 90 transport_reference: transport 0x8142ce0 now has 4 references
+110343.911216 Mesg 90 message_alloc: allocated 0x81431b8
+110343.911279 SA   80 sa_reference: SA 0x8142bf8 now has 3 references
+110343.911345 Default exchange_run: doi->initiator (0x81431b8) failed
+110343.911406 Mesg 20 message_free: freeing 0x81431b8
+110343.911469 Trpt 90 transport_release: transport 0x8142ce0 had 4 references
+110343.911532 SA   80 sa_release: SA 0x8142bf8 had 3 references
+110343.911593 SA   80 sa_release: SA 0x8142bf8 now has 2 references (sa_release)
+110343.911653 SA   80 sa_release: SA 0x8142bf8 returning without freeing SA
+110343.911718 SA   70 sa_remove: SA 0x8141e48 removed from SA list
+110343.911790 SA   80 sa_release: SA 0x8141e48 had 1 references
+110343.911856 SA   80 sa_release: SA 0x8141e48 now has 0 references (sa_release)
+110343.911916 SA   60 sa_release: freeing SA 0x8141e48
+110343.911981 Exch 50 gdoi_delete_spi: Asked to delete SPI for src a00e025 ffffffff dst ef010101 ffffffff
+110343.912049 Misc 90 proto_free: freeing 0x813e990
+110343.912114 Trpt 90 transport_release: transport 0x8140e10 had 1 references
+110343.912174 Trpt 70 transport_release: freeing 0x8140e10
+110343.912237 SA   90 sa_find: no SA matched query

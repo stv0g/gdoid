@@ -1,0 +1,19 @@
+#!/bin/sh
+# $Id: START_KS,v 1.1.2.1 2011/12/12 23:49:35 bew Exp $
+# $Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/samples/iec90-5/Attic/START_KS,v $
+
+#
+# Create a second loopback. The syntax varies per system. Uncomment the
+# appropriate line below.
+# For OS X, use the following line
+ifconfig lo0 127.0.0.2 alias
+#
+# For Linux, use the following line
+# ifconfig lo:1 127.0.0.2 
+#
+# For BSD, use the following line
+# ifconfig lo1 127.0.0.2 
+#
+
+DIR=../..
+${DIR}/src/gdoid -d -n -DA=99 -f/tmp/isakmpd2.fifo -cgdoi_ks.conf

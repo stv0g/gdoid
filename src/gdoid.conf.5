@@ -1,0 +1,792 @@
+.\" $Id: gdoid.conf.5,v 1.3 2005/10/11 17:57:36 bew Exp $
+.\" $Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/src/gdoid.conf.5,v $
+.\"
+.\" $OpenBSD: gdoid.conf.5,v 1.50 2001/04/05 23:04:53 ho Exp $
+.\" $EOM: gdoid.conf.5,v 1.57 2000/12/21 14:43:17 ho Exp $
+.\"
+.\" Copyright (c) 1998, 1999, 2000 Niklas Hallqvist.  All rights reserved.
+.\" Copyright (c) 2000, 2001 Håkan Olsson.  All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. All advertising materials mentioning features or use of this software
+.\"    must display the following acknowledgement:
+.\"	This product includes software developed by Ericsson Radio Systems.
+.\" 4. The name of the author may not be used to endorse or promote products
+.\"    derived from this software without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+.\" IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+.\" OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+.\" IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+.\" INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+.\" NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+.\" DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+.\" THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+.\" (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+.\" THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+.\"
+.\" This code was written under funding by Ericsson Radio Systems.
+.\"
+.\" Manual page, using -mandoc macros
+.\"
+.Dd August 15, 2003
+.Dt GDOID.CONF 5
+.Os
+.Sh NAME
+.Nm gdoid.conf
+.Nd configuration file for gdoid
+.Sh DESCRIPTION
+.Nm
+is the configuration file for the
+.Nm gdoid
+daemon managing security association and key management for the
+IPSEC layer of the kernel's networking stack.
+.Pp
+The file is of a well known type of format called .INI style, named after
+the suffix used by an overrated windowing environment for its configuration
+files.
+This format consists of sections, each beginning with a line looking like:
+.Bd -literal
+[Section name]
+.Ed
+Between the brackets is the name of the section following this section header.
+Inside a section many tag/value pairs can be stored, each one looking like:
+.Bd -literal
+Tag=Value
+.Ed
+If the value needs more space than fits on a single line it's possible to
+continue it on the next by ending the first with a backslash character
+immediately before the newline character.
+This method can extend a value for an arbitrary amount of lines.
+.Pp
+Comments can be put anywhere in the file by using a hash mark
+.Pq Sq \&# .
+Then the comment goes on to the end of the line.
+.Pp
+Often the right-hand side values consist of other section names.
+This results in a tree structure.
+Some values are treated as a list of several scalar values, such lists always
+use comma as the separator.
+Some values are formatted like this: X,Y:Z, which
+is an offer/accept syntax, where X is a value we offer and Y:Z is a range of
+accepted values, inclusive.
+.Pp
+.\"XXX Following empty .Ss works around a nroff bug, we want the new line."
+.Ss
+.Pp
+.Ss Roots
+.Bl -hang -width 12n
+.It Em General
+Generic global configuration parameters
+.Bl -tag -width 12n
+.It Em Retransmits
+How many times should a message be retransmitted before giving up.
+.It Em Check-interval
+The interval between watchdog checks of connections we want up at all times.
+.It Em Exchange-max-time
+How many seconds should an exchange maximally take to setup
+before we give up.
+.It Em Listen-on
+A list of IP-addresses OK to listen on.
+This list is used as
+a filter for the set of addresses the interfaces configured
+provides.
+This means that we won't see if an address given
+here does not exist on this host, and thus no error is given for
+that case.
+.It Em Shared-SADB
+If this tag is defined, whatever the value is, some semantics of
+.Nm
+are changed so that multiple instances can run on top of one SADB
+and setup SAs with eachother.
+Specifically this means replay
+protection will not be asked for, and errors that can occur when
+updating an SA with its parameters a 2nd time will be ignored.
+.El
+.It Em Phase 1
+ISAKMP SA negotiation parameter root
+.Bl -tag -width 12n
+.It Em <IP-address>
+A name of the ISAKMP peer at the given IP-address.
+.It Em Default
+A name of the default ISAKMP peer.  Incoming
+Phase 1 connections from other IP-addresses will use this peer name.
+.It ""
+This name is used as the section name for further information to be found.
+Look at <ISAKMP-peer> below.
+.El
+.It Em Phase 2
+IPsec SA negotiation parameter root
+.Bl -tag -width 12n
+.It Em Connections
+A list of directed IPSec "connection" names that should be brought up
+automatically, either on first use if the system supports it, or at
+startup of the daemon.
+These names are section names where further information can be found.
+Look at <IPSec-connection> below.
+Normally any connection mentioned here are treated as part of the
+"Passive-connection" list we present below, however there is a
+flag: "Active-only" that disables this behaviour.
+This too is mentioned in the <IPSec-connection> section, in the "Flags" tag.
+.It Em Passive-connections
+A list of IPSec "connection" names we recognize and accept initiations for.
+These names are section names where further information can be found.
+Look at <IPSec-connection> below.
+Currently only the Local-ID and Remote-ID tags
+are looked at in those sections, as they are matched against the IDs given
+by the initiator.
+.El
+.It Em X509-Certificates
+.Bl -tag -width 12n
+.It Em CA-directory
+A directory containing PEM certificates of certification authorities
+that we trust to sign other certificates. 
+The certificates in this directory are used for the actual X.509
+authentication and for cross-referencing policies that refer to
+Distinguished Names (DNs). Keeping a separate directory (as opposed
+to integrating policies and X.509 CA certificates) allows for maintenance
+of a list of "well known" CAs without actually having to trust all (or any)
+of them.
+.It Em Cert-directory
+A directory containing PEM certificates that we trust to be valid.
+These certificates are used in preference to those passed in messages and
+are required to have a SubjectAltName extension.
+.It Em Accept-self-signed
+If this tag is defined, whatever the value is, certificates that
+do not originate from a trusted CA but are self-signed will be
+accepted.
+.It Em Private-key
+The private key matching the public key of our certificate (which should be
+in the "Cert-directory", and have a subjectAltName matching our ID, so far
+that is our IP-address).
+.El
+.El
+.Ss Referred-to sections
+.Bl -hang -width 12n
+.It Em <ISAKMP-peer>
+Parameters for negotiation with an ISAKMP peer
+.Bl -tag -width 12n
+.It Em Phase
+The constant
+.Li 1 ,
+as ISAKMP-peers and Group-specification
+really are handled by the same code inside gdoid.
+.It Em Transport
+The name of the transport protocol, defaults to
+.Li UDP .
+.It Em Port
+In case of 
+.Li UDP , 
+the 
+.Li UDP 
+port number to send to.
+This is optional, the
+default value is 500 which is the IANA-registered number for ISAKMP.
+.It Em Local-address
+The Local IP-address to use, if we are multi-homed, or have aliases.
+.It Em Address
+If existent, the IP-address of the peer.
+.It Em Configuration
+The name of the ISAKMP-configuration section to use.
+Look at <ISAKMP-configuration> below.
+.It Em Authentication
+If existent, authentication data for this specific peer.
+In the case of preshared key, this is the key value itself.
+.It Em ID
+If existent, the name of the section that describes the
+local client ID that we should present to our peer.
+If not present, it
+defaults to the address of the local interface we are sending packets
+over to the remote daemon.
+Look at <Phase1-ID> below.
+.It Em Remote-ID
+If existent, the name of the section that describes the remote client
+ID we expect the remote daemon to send us.
+If not present, it defaults to the address of the remote daemon.
+Look at <Phase1-ID> below.
+.It Em Flags
+A comma-separated list of flags controlling the further
+handling of the ISAKMP SA.
+Currently there are no specific ISAKMP SA flags defined.
+.El
+.It Em <Phase1-ID>
+.Bl -tag -width 12n
+.It Em ID-type
+The ID type as given by the RFCs.
+For Phase 1 this is currently
+.Li IPV4_ADDR ,
+.Li IPV4_ADDR_SUBNET ,
+.Li FQDN ,
+.Li USER_FQDN ,
+or
+.Li KEY_ID .
+.It Em Address
+If the ID-type is
+.Li IPV4_ADDR ,
+this tag should exist and be an IP-address.
+.It Em Network
+If the ID-type is
+.Li IPV4_ADDR_SUBNET
+this tag should exist and
+be a network address.
+.It Em Netmask
+If the ID-type is
+.Li IPV4_ADDR_SUBNET
+this tag should exist and
+be a network subnet mask.
+.It Em Name
+If the ID-type is
+.Li FQDN ,
+.Li USER_FQDN ,
+or
+.Li KEY_ID ,
+this tag should exist and contain a domain name, user@domain, or
+other identifying string respectively.
+.El
+.It Em <ISAKMP-configuration>
+.Bl -tag -width 12n
+.It Em DOI
+The domain of interpretation as given by the RFCs.
+Normally
+.Li GDOI .
+If unspecified, results in an error.
+.It Em EXCHANGE_TYPE
+The exchange type as given by the RFCs.
+For main mode this is
+.Li ID_PROT
+and for aggressive mode it is
+.Li AGGRESSIVE .
+.It Em Transforms
+A list of proposed transforms to use for protecting the
+ISAKMP traffic.
+These are actually names for sections
+further describing the transforms.
+Look at <ISAKMP-transform> below.
+.El
+.It Em <ISAKMP-transform>
+.Bl -tag -width 12n
+.It Em ENCRYPTION_ALGORITHM
+The encryption algorithm as the RFCs name it, or ANY to denote that any
+encryption algorithm proposed will be accepted.
+.It Em KEY_LENGTH
+For encryption algorithms with variable key length, this is
+where the offered/accepted keylengths are described.
+The value is of the offer-accept kind described above.
+.It Em HASH_ALGORITHM
+The hash algorithm as the RFCs name it, or ANY.
+.It Em AUTHENTICATION_METHOD
+The authentication method as the RFCs name it, or ANY.
+.It Em GROUP_DESCRIPTION
+The group used for Diffie-Hellman exponentiations, or ANY.
+The name are symbolic, like
+.Li MODP_768 , MODP_1024 , EC_155
+and
+.Li EC_185 .
+.It Em PRF
+The algorithm to use for the keyed pseudo-random function (used for key
+derivation and authentication in Phase 1), or ANY.
+.It Em Life
+A list of lifetime descriptions, or ANY.
+In the former case, each
+element is in itself a name of the section that defines the lifetime.
+Look at <Lifetime> below.
+If it is set to ANY, then any type of
+proposed lifetime type and value will be accepted.
+.El
+.It Em <Lifetime>
+.Bl -tag -width 12n
+.It Em LIFE_TYPE
+.Li SECONDS
+or
+.Li KILOBYTES
+depending on the type of the duration.
+Notice that this field may NOT be set to ANY.
+.It Em LIFE_DURATION
+An offer/accept kind of value, see above.
+Can also be set to ANY.
+.El
+.It Em <Group-specification>
+.Bl -tag -width 12n
+.It Em Phase
+The constant
+.Li 2 ,
+as ISAKMP-peers and Group-specification
+really are handled by the same code inside gdoid.
+.It Em Configuration
+The name of the Group-configuration section to use.
+Look at <Group-configuration> below.
+.It Em Group-ID
+The name of the section that describes the
+local group ID for which the <Group-configuration> is identified.
+.El
+.It Em <Group-configuration>
+.Bl -tag -width 12n
+.It Em DOI
+The domain of interpretation as given by the RFCs. Should be 
+.Li GDOI .
+.It Em EXCHANGE_TYPE
+The exchange type as given by RFC 3549.
+For GDOI Registration this is
+.Li PULL_MODE .
+.It Em SA-TEKS
+On the key server only, a list of <Data-SA-policy> statements that describe
+particular IPsec SAs.
+.It Em SA-KEK
+On the key server only, a single <Rekey-policy> statement that describes
+the GDOI PUSH_MODE Rekey message.
+.El
+.It Em <Data-SA-policy>
+The policy definition and keys associated with a Data SA. The keys (and in the
+case of IPsec, the SPI) are used for the first use of the SA. If a GDOI rekey
+message sends another SA based on this policy, it will replace the keys and
+SPI with random values.
+.Bl -tag -width 12n
+.It Em Crypto-protocol
+The protocol type used to protect the data. The only supported value is
+PROTO_IPSEC_ESP.
+.It Em Source-ID
+The name of the section that describes the
+source address or addresses that represent the sender of data packets.
+Look at <IPSec-ID> below.
+.It Em Dest-ID
+The name of the section that describes the
+destination address or addresses that represent the destination of data packets.
+Look at <IPSec-ID> below.
+.It Em SPI
+The Security Parameter Index (SPI) value representing this SA.
+.It Em TEK_Suite
+The <IPSec-suite> which represents the IPsec policy to use for the packets
+matching this SA.
+.It Em DES_KEY1
+When 3DES is specified in the TEK_Suite, this is the first of the three 
+3DES keys used when creating the SA.
+.It Em DES_KEY2
+When 3DES is specified in the TEK_Suite, this is the second of the three 
+3DES keys used when creating the SA.
+.It Em DES_KEY3
+When 3DES is specified in the TEK_Suite, this is the third of the three
+3DES keys used when creating the SA.
+.It Em AES_KEY
+When AES is specified in the TEK_Suite, this is the 
+key used when creating the SA.
+.It Em SHA_KEY
+When SHA is specified in the TEK_Suite, this is the SHA key used for
+packet authentication.
+.El
+.It Em <Rekey-policy>
+.Bl -tag -width 12n
+.It Em Source-ID
+The name of the section that describes the
+source address that represents the sender of rekey packets.
+Look at <IPSec-ID> below.
+.It Em Dest-ID
+The name of the section that describes the
+destination address that represents the destination of the rekey packets.
+Look at <IPSec-ID> below.
+.It Em SPI
+The Security Parameter Index (SPI) value representing this SA. The SPI is the
+same as the ISAKMP "cookie pair".
+.It Em ENCRYPTION_ALGORITHM
+The encryption algorithm used to protect the rekey message. Must be 3DES.
+.It Em SIG_HASH_ALGORITHM
+The cryptographic algorithm used to digest the rekey message. Must be SHA.
+.It Em SIG_ALGORITHM
+The cryptographic algorithm used to create a signature for the rekey message. 
+Must be RSA.
+.It Em DES_IV
+The value of an Initialization Vector used when the ENCRYPTION_ALGORITHM 
+requires one.
+.It Em DES_KEY1
+When 3DES is specified as the ENCRYPTION_ALGORITHM, 
+this is the first of the three 
+3DES keys used to encrypt the rekey message.
+.It Em DES_KEY2
+When 3DES is specified as the ENCRYPTION_ALGORITHM, 
+this is the second of the three 
+3DES keys used to encrypt the rekey message.
+.It Em DES_KEY3
+When 3DES is specified as the ENCRYPTION_ALGORITHM,
+this is the third of the three
+3DES keys used to encrypt the rekey message.
+.It Em <RSA-Keypair>
+The location in the file system of a DER-encoded keypair. The private key of
+this keypair is used by the key server to sign messages. The public key of
+this keypair is passed to group members for the purpose of verifying the
+authenticity of rekey messages.
+.It Em <REKEY_PERIOD>
+The period between which rekey messages are sent. The rekey messages conatin 
+replacement SAs for those listed in the <Data-SA-policy> part of the
+<Group-configuration>. The rekey period value works best when it is identical
+to the lifetime of the IPSec SAs.
+.El
+.It Em <IPSec-suite>
+.Bl -tag -width 12n
+.It Em Protocols
+A list of the protocols included in this protection suite.
+Each of the list elements is a name of an <IPSec-protocol>
+section.
+See below.
+.El
+.It Em <IPSec-protocol>
+.Bl -tag -width 12n
+.It Em PROTOCOL_ID
+The protocol as given by the RFCs.
+Acceptable values today are
+.Li IPSEC_AH
+and
+.Li IPSEC_ESP .
+.It Em Transforms
+A list of transforms usable for implementing the protocol.
+Each of the list elements is a name of an <IPSec-transform>
+section.
+See below.
+.It Em ReplayWindow
+The size of the window used for replay protection.
+This is normally left alone.
+Look at the
+.Nm ESP
+and
+.Nm AH
+RFCs for a better description.
+.El
+.It Em <IPSec-transform>
+.Bl -tag -width 12n
+.It Em TRANSFORM_ID
+The transform ID as given by the RFCs.
+.It Em ENCAPSULATION_MODE
+The encapsulation mode as given by the RFCs.
+This means TRANSPORT or TUNNEL.
+.It Em AUTHENTICATION_ALGORITHM
+The optional authentication algorithm in the case of this
+being an ESP transform.
+.It Em GROUP_DESCRIPTION
+An optional (provides PFS if present) Diffie-Hellman group
+description.
+The values are the same as GROUP_DESCRIPTION's
+in <ISAKMP-transform> sections shown above.
+.It Em Life
+List of lifetimes, each element is a <Lifetime> section name.
+.El
+.It Em <IPSec-ID>
+.Bl -tag -width 12n
+.It Em ID-type
+The ID type as given by the RFCs.
+For IPSec this is currently
+.Li IPV4_ADDR
+or
+.Li IPV4_ADDR_SUBNET .
+.It Em Address
+If the ID-type is
+.Li IPV4_ADDR ,
+this tag should exist and be an IP-address.
+.It Em Network
+If the ID-type is
+.Li IPV4_ADDR_SUBNET
+this tag should exist and
+be a network address.
+.It Em Netmask
+If the ID-type is
+.Li IPV4_ADDR_SUBNET
+this tag should exist and
+be a network subnet mask.
+.It Em Protocol
+If the ID-type is
+.Li IPV4_ADDR
+or
+.Li IPV4_ADDR_SUBNET ,
+this tag indicates what transport protocol should be transmitted over
+the SA.
+If left unspecified, all transport protocols between the two address
+(ranges) will be sent (or permitted) over that SA.
+.It Em Port
+If the ID-type is
+.Li IPV4_ADDR
+or
+.Li IPV4_ADDR_SUBNET ,
+this tag indicates what source or destination port is allowed to be
+transported over the SA (depending on whether this is a local or
+remote ID).
+If left unspecified, all ports of the given transport protocol
+will be transmitted (or permitted) over the SA.
+The Protocol tag must be specified in conjunction with this tag.
+.El
+.Sh EXAMPLES
+.Pp
+
+EXAMPLE 1: An example of a key server configuration file:
+.Pp
+.Bd -literal
+
+# 
+# A configuration sample for testing GDOI.
+# This is the key server side.
+#
+
+[General]
+Retransmits=		5
+Exchange-max-time=	120
+Listen-on=		127.0.0.2
+
+# Incoming phase 1 negotiations are multiplexed on the source IP address
+[Phase 1]
+127.0.0.1=		GDOI-loopback-1
+127.0.0.3=		GDOI-loopback-3
+
+# These connections are walked over after config file parsing and told
+# to the application layer so that it will inform us when traffic wants to
+# pass over them.  This means we can do on-demand keying.
+[Phase 2]
+Passive-Connections=		Group-1234
+
+[GDOI-loopback-1]
+Phase=			1
+Transport=		udp
+Local-address=		127.0.0.2
+Address=		127.0.0.1
+Configuration=		Default-main-mode
+Authentication=		mekmitasdigoat
+
+[GDOI-loopback-3]
+Phase=			1
+Transport=		udp
+Local-address=		127.0.0.2
+Address=		127.0.0.3
+Configuration=		Default-main-mode
+Authentication=		mekmitasdigoat
+
+[Group-1234]
+Phase=			2
+#ISAKMP-peer=		GDOI-loopback-1
+Configuration=		Default-group-mode
+Group-ID=		Group-1
+
+[Group-1]
+ID-type=		KEY_ID
+Key-value=		1234
+
+# Main mode descriptions
+
+[Default-main-mode]
+DOI=			GROUP
+EXCHANGE_TYPE=		ID_PROT
+Transforms=		3DES-SHA
+
+# Main mode transforms
+######################
+
+# 3DES
+
+[3DES-SHA]
+ENCRYPTION_ALGORITHM=	3DES_CBC
+HASH_ALGORITHM=		SHA
+AUTHENTICATION_METHOD=	PRE_SHARED
+GROUP_DESCRIPTION=	MODP_1024
+Life=			LIFE_3600_SECS
+
+# Lifetimes
+
+[LIFE_60_SECS]
+LIFE_TYPE=		SECONDS
+LIFE_DURATION=		60,45:72
+
+[LIFE_3600_SECS]
+LIFE_TYPE=		SECONDS
+LIFE_DURATION=		3600,1800:7200
+
+# GDOI description
+########################
+
+# 3DES
+
+[GDOI-ESP-3DES-SHA-XF]
+TRANSFORM_ID=		3DES
+ENCAPSULATION_MODE=	TUNNEL
+AUTHENTICATION_ALGORITHM=	HMAC_SHA
+Life=			LIFE_3600_SECS
+
+# AES
+
+[GDOI-ESP-AES-SHA-XF]
+TRANSFORM_ID=           AES
+ENCAPSULATION_MODE=     TUNNEL
+AUTHENTICATION_ALGORITHM=       HMAC_SHA
+Life=                  LIFE_3600_SECS
+
+# Group mode description
+########################
+
+[Default-group-mode]
+DOI=			GROUP
+EXCHANGE_TYPE=		PULL_MODE
+#
+SA-KEK=			GROUP2-KEK
+SA-TEKS=		GROUP1-TEK1,GROUP1-TEK2
+
+[GROUP2-KEK]
+Src-ID=                 Group-kek-src
+Dst-ID=                 Group-kek-dst
+SPI=                    abcdefgh01234567
+ENCRYPTION_ALGORITHM=   3DES
+SIG_HASH_ALGORITHM=     SHA
+SIG_ALGORITHM=          RSA
+DES_IV=                 IVIVIVIV
+DES_KEY1=               ABCDEFGH
+DES_KEY2=               IJKLMNOP
+DES_KEY3=               QRSTUVWX
+RSA-Keypair=		/usr/local/gdoi/tests/rsakeys.der
+REKEY_PERIOD=           30
+
+[Group-kek-src]
+ID-type=                IPV4_ADDR
+Address=                127.0.0.2
+Port=			2400
+
+[Group-kek-dst]
+ID-type=                IPV4_ADDR
+#Address=                172.23.56.253
+Address=                239.11.1.1
+Port=			848
+
+# Src-ID and Dst-ID are the addresses for the IP ESP packet.
+[GROUP1-TEK1]
+Crypto-protocol=	PROTO_IPSEC_ESP
+Src-ID=               	Group-tek1-src
+Dst-ID=              	Group-tek1-dst
+# SPI is 0x1122aabb
+SPI=			287484603
+TEK_Suite=		GDOI-ESP-3DES-SHA-SUITE
+DES_KEY1=		ABCDEFGH
+DES_KEY2=		IJKLMNOP
+DES_KEY3=		QRSTUVWX
+SHA_KEY=		12345678901234567890
+
+[Group-tek1-src]
+ID-type=                IPV4_ADDR
+Address=                172.19.137.42
+Port=			1024
+
+[Group-tek1-dst]
+ID-type=                IPV4_ADDR
+Address=                239.192.1.1
+Port=			1024
+
+# Src-ID and Dst-ID are the addresses for the IP ESP packet.
+[GROUP1-TEK2]
+Src-ID=               	Group-tek2-src
+Dst-ID=              	Group-tek2-dst
+# SPI is 0x3344ccdd
+SPI=			860146909
+TEK_Suite=		GDOI-ESP-AES-SHA-SUITE
+AES_KEY=		ABCDEFGHIJKLMNOP
+SHA_KEY=		01234567890123456789
+
+[Group-tek2-src]
+ID-type=                IPV4_ADDR
+Address=                172.19.137.42
+Port=			512
+
+[Group-tek2-dst]
+ID-type=                IPV4_ADDR
+Address=                239.192.1.2
+Port=			512
+
+[GDOI-ESP-3DES-SHA-SUITE]
+Protocols=              GDOI-ESP-3DES-SHA
+
+[GDOI-ESP-3DES-SHA]
+PROTOCOL_ID=            IPSEC_ESP
+Transforms=             GDOI-ESP-3DES-SHA-XF
+
+[GDOI-ESP-AES-SHA-SUITE]
+Protocols=              GDOI-ESP-AES-SHA
+
+[GDOI-ESP-AES-SHA]
+PROTOCOL_ID=            IPSEC_ESP
+Transforms=             GDOI-ESP-AES-SHA-XF
+
+EXAMPLE 2: An example of a group member configuration file:
+
+
+# 
+# A configuration sample for testing GDOI.
+# This is the client (group member) side.
+#
+
+[General]
+Retransmits=		5
+Exchange-max-time=	120
+Listen-on=		127.0.0.1
+check-interval=		86400
+
+# Incoming phase 1 negotiations are multiplexed on the source IP address
+[Phase 1]
+127.0.0.2=		ISAKMP-peer-gcks
+
+# These connections are walked over after config file parsing and told
+# to the application layer so that it will inform us when traffic wants to
+# pass over them.  This means we can do on-demand keying.
+[Phase 2]
+Connections=		Group-1234
+
+[ISAKMP-peer-gcks]
+Phase=			1
+Transport=		udp
+Local-address=		127.0.0.1
+Address=		127.0.0.2
+Configuration=		Default-main-mode
+Authentication=		mekmitasdigoat
+
+[Group-1234]
+Phase=			2
+ISAKMP-peer=		ISAKMP-peer-gcks
+Configuration=		Default-group-mode
+Group-ID=		Group-1
+
+[Group-1]
+ID-type=		KEY_ID
+Key-value=		1234
+
+# Main mode descriptions
+
+[Default-main-mode]
+DOI=			GROUP
+EXCHANGE_TYPE=		ID_PROT
+Transforms=		3DES-SHA
+
+# Main mode transforms
+######################
+
+
+# 3DES
+
+[3DES-SHA]
+ENCRYPTION_ALGORITHM=	3DES_CBC
+HASH_ALGORITHM=		SHA
+AUTHENTICATION_METHOD=	PRE_SHARED
+GROUP_DESCRIPTION=	MODP_1024
+Life=			LIFE_3600_SECS
+
+# Lifetimes
+
+[LIFE_3600_SECS]
+LIFE_TYPE=		SECONDS
+LIFE_DURATION=		3600,1800:7200
+
+# Group mode description
+########################
+
+[Default-group-mode]
+DOI=			GROUP
+EXCHANGE_TYPE=		PULL_MODE
+
+.Ed
+.Sh SEE ALSO
+.Xr ipsec 4 ,
+.Xr gdoid 8

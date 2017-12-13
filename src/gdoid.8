@@ -1,0 +1,250 @@
+.\" $OpenBSD: gdoid.8,v 1.24 2001/04/09 21:21:57 ho Exp $
+.\" $EOM: gdoid.8,v 1.23 2000/05/02 00:30:23 niklas Exp $
+.\"
+.\" Copyright (c) 1998, 1999 Niklas Hallqvist.  All rights reserved.
+.\" Copyright (c) 1999 Angelos D. Keromytis.  All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. All advertising materials mentioning features or use of this software
+.\"    must display the following acknowledgement:
+.\"	This product includes software developed by Ericsson Radio Systems.
+.\" 4. The name of the author may not be used to endorse or promote products
+.\"    derived from this software without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+.\" IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+.\" OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+.\" IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+.\" INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+.\" NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+.\" DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+.\" THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+.\" (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+.\" THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+.\"
+.\" This code was written under funding by Ericsson Radio Systems.
+.\"
+.\" Manual page, using -mandoc macros
+.\"
+.Dd July 31, 1998
+.Dt GDOID 8
+.Os
+.Sh NAME
+.Nm gdoid
+.Nd GDOI group key management daemon
+.Sh SYNOPSIS
+.Nm gdoid
+.Op Fl c Ar config-file
+.Op Fl d
+.Op Fl D Ar class=level
+.Op Fl f Ar fifo
+.Op Fl i Ar pid-file
+.Op Fl n
+.Op Fl p Ar listen-port
+.Op Fl P Ar local-port
+.Op Fl L
+.Op Fl l Ar packetlog-file
+.Op Fl r Ar seed
+.Op Fl R Ar report-file
+.Sh DESCRIPTION
+The
+.Nm
+daemon establishes security associations for encrypted
+and/or authenticated group and multicast network traffic.  At this moment,
+this means
+.Xr ipsec 4
+traffic.
+.Pp
+The gdoid deamon acts in two roles: either as group controller/key server for
+a group that distributes keys and policy, or as a group member. 
+.Pp
+A group controller/key server (GCKS) has specific group policy and
+cryptographic keys defined for group traffic. The GCKS listens for group 
+members to register with it. Once contacted by the group member, 
+it authenticates the group member 
+and then distributes the policy. Policy includes IPsec SA's, and also GDOI 
+rekey SAs. The policy is kept in a local configuration file.
+.Pp
+A group member is configured to register with a GCKS, to get the policy and 
+keys for a specific group. It too has a configuration file, but one with just 
+enough configuration to identity and authenticate itself to the GCKS. 
+If the group member is given IPsec SAs as part of the registreation, it will
+try to load them into the kernel with a
+.Dv PF_KEY
+socket.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl c Ar config-file
+If given, the
+.Fl c
+option specifies an alternate configuration file instead of
+.Pa /etc/gdoid/gdoid.conf .
+As this file may contain sensitive information, it must be readable
+only by the user running the daemon.
+.It Fl d
+The
+.Fl d
+option is used to make the daemon run in the foreground, logging to stderr.
+.It Xo Fl D
+.Ar class Ns No = Ns Ar level
+.Xc
+Debugging class.
+This argument is possible to specify many times.
+It takes a parameter of the form
+.Ar class Ns No = Ns Ar level
+where both
+.Ar class
+and
+.Ar level
+are numbers.
+.Ar class
+denotes a debugging class, and
+.Ar level
+the level you want that debugging class to
+limit debug printouts at (i.e., all debug printouts above the level specified
+will not output anything).
+If
+.Ar class
+is set to 'A',
+then all debugging classes are set to the specified level.
+.Pp
+Valid values for
+.Ar class
+are as follows:
+.Pp
+.Bl -tag -width 1n -compact -offset indent
+.It 0
+Misc
+.It 1
+Transport
+.It 2
+Message
+.It 3
+Crypto
+.It 4
+Timer
+.It 5
+Sysdep
+.It 6
+SA
+.It 7
+Exchange
+.It 8
+Negotiation
+.It 9
+Policy
+.It A
+All
+.El
+.It Fl f Ar fifo
+The
+.Fl f
+option specifies the
+.Tn FIFO
+(a.k.a. named pipe) where the daemon listens for
+user requests.
+If the path given is a dash
+.Pq Sq \&- ,
+.Nm
+will listen to stdin instead.
+.It Fl i Ar pid-file
+By default the PID of the daemon process will be written to
+.Pa /var/run/gdoid.pid .
+This path can be overridden by specifying another one as the argument to the
+.Fl i
+option.
+.It Fl n
+When the
+.Fl n
+option is given, the kernel will not take part in the negotiations.
+This is a non-destructive mode so to say, in that it won't alter any
+SAs in the IPsec stack.
+.It Fl p Ar listen-port
+The
+.Fl p
+option specifies the listen port the daemon will bind to.
+.It Fl P Ar local-port
+On the other hand, the port specified to capital
+.Fl P
+will be what the daemon binds its local end to when acting as
+initiator.
+.It Fl L
+Enable GDOI packet capture. When this option is given, 
+.Nm
+will capture to file an unencrypted copy of the negotiation packets it
+is sending and receiveing. This file can later be read by 
+.Xr tcpdump 8
+and other utilities using 
+.Xr pcap 3 .
+.It Fl l Ar packetlog-file
+As option
+.Fl L
+above, but capture to a specified file.
+.It Fl r Ar seed
+If given a deterministic random number sequence will be used internally.
+.It Fl R Ar report-file
+When you signal
+.Nm
+a
+.Dv SIGUSR1
+it will report its internal state to a report file, normally
+.Pa /var/run/gdoid.report ,
+but this can be changed by feeding
+the file name as an argument to the
+.Fl R
+flag.
+.El
+.Sh BUGS
+The
+.Fl P
+flag does not do what we document, rather it does nothing.
+.Sh FILES
+.Bl -tag -width /var/run/gdoid.report
+.It Pa /etc/gdoid/ca/
+The directory where CA certificates can be found.
+.It Pa /etc/gdoid/certs/
+The directory where GDOI certificates can be found, both the local
+certificate(s) and those of the peers, if a choice to have them kept
+permanently has been made.
+.It Pa /etc/gdoid/gdoid.conf
+The configuration file. As this file can contain sensitive information
+it must not be readable by anyone but the user running gdoid.
+.It Pa /etc/gdoid/private/local.key
+A local private key for certificate based authentication.  There has
+to be a certificate for this key in the certificate directory mentioned
+above. Same mode requirements as gdoid.conf.
+.It Pa /var/run/gdoid.fifo
+The FIFO used to manually control
+.Nm gdoid .
+.It Pa /var/run/gdoid.pcap
+The default GDOI packet capture file.
+.It Pa /var/run/gdoid.report
+The report file written when
+.Dv SIGUSR1
+is received.
+.El
+.Sh SEE ALSO
+.Xr ipsec 4 ,
+.Xr gdoid.conf 5 ,
+.Xr openssl 8 ,
+.Xr pcap 3 ,
+.Xr photurisd 8 ,
+.Xr ssl 8 ,
+.Xr tcpdump 8 ,
+.Sh HISTORY
+The GDOI key management protocol is described in RFC 3547. It is based on
+the ISAKMP/Oakley key management protocol is described in the RFCs
+.%T RFC 2407 ,
+.%T RFC 2408
+and
+.%T RFC 2409 .
+This gdoid implementation was based on isakmpd, by Niklas Hallqvist and Niels Provos,
+sponsored by Ericsson Radio Systems.

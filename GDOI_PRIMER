@@ -1,0 +1,359 @@
+$Id: GDOI_PRIMER,v 1.12.2.2 2011/12/12 23:24:16 bew Exp $
+$Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/GDOI_PRIMER,v $
+
+		GDOI Reference Implementation Primer
+		------------------------------------
+
+A. Introduction
+
+The purpose of this reference implementation is to provide a base vehicle for
+testing the GDOI group key management protocol. GDOI was first specified in RFC 3547, and 
+re-published with corrections and updates in RFC 6407. This primer shows 
+the very basics of configuring GDOI on a pair of systems with known-working 
+configurations.
+
+GDOI is a key management system for groups. It is primarily designed for use
+with secure broadcast applications, but many other types of applications can
+take advantage of GDOI as well for their keying.
+
+B. System Requirements
+
+You will need two systems, either Linux (based on a 2.6 kernel ONLY) or 
+BSD systems. This code was developed on Linux and OS/X. The following 
+releases have been tested and are safe to use:
+
+Linux:   Fedora 14
+OS X:    10.6.8
+
+You will need to have version of OpenSSL that has support for SHA256. This is
+currently release openssl-0.9.8a or later. Some hints if you install this 
+version in a non-standard location (e.g., the default is /usr/local/ssl):
+
+* If you have shared library version of libcrypto installed in /usr/lib then 
+  you may need to generate a shared library version in the non-standard
+  location.
+* If you are using a shared library be sure that the shared library is
+  included in your LD_LIBRARY_PATH environment variable.
+
+For help with gdoid configuration,see gdoid.conf.5. Note that the page must be 
+formated with "nroff -mandoc" macros.
+
+For Ubuntu, you may need to install the libssl-dev package. E.g.,
+        "sudo apt-get install libssl-dev"
+
+C. System Roles
+
+It is most efficient for many group applications to have a rendezvous point
+where group members can get keys. With that in mind, GDOI was developed to
+have two distinct roles in the protocol: the role of a key server, and the
+role of a group member. 
+
+C.1 Key Server
+
+A GDOI key server has the responsibility of keeping keys for the group, and
+releasing them on demand to authenticated and authorized group members. 
+GDOI authenticates group members using the definition of an IKE Phase 1 
+exchange (see RFC 2409). The GDOI registration exchange follows the IKE Phase 1 
+exchange. It contains liveliness checks, confidentiality, and authorization 
+checks.
+
+This GDOI reference implementation does not provide any level of authorization
+check. As long as the group member passes the IKE Phase 1 authentication he is 
+granted access to whatever groups are available on the key server.
+
+The key server does support the GDOI "push" (or rekey) message by which a
+key server can update the keys and policy for the entire group. An IP multicast
+message is used for this purpose.
+
+C.2 Group Member
+
+A group member is a host in which some cryptosystem which needs
+keys. This version supports IPsec, and also an incomplete version of 
+IEC 61850-90-5.
+
+C.2.1 IPSec
+
+Applications are not aware of IPSec protecting applications; it's
+all done transparently in the kernel. In this reference implementation
+the GDOI group member code is pre-configured with which groups to
+join, and it contacts the key server at startup time. This ensures
+that the SAs will be loaded into the kernel when the application
+is started.
+
+To test IPsec, you can use a Linux system (with a 2.6 kernel) without 
+modification.  I have demonstrated that the kernel will accept SAs for 
+multicast destinations and match incoming and outgoing packets against them. 
+
+Ciphers 3DES and AES have been validated to work with OpenBSD.
+
+C.2.2 IEC 61850-90-5
+
+This package comes with a framework for supporting IEC 61850-90-5, a standard for
+distrubuting PMU traffic as IP multicast packets. IT does NOT contain the actual
+protocol support needed to protect that standard.
+
+D. Initial Setup
+
+Choose which system will be your key server, and which system will be your
+group member and note their IP addresses. 
+
+D.1 Key Server Setup
+
+It would be best of find sample configurations in the samples document
+and use one of them. To test between two or three systems use the samples in 
+the "three-clients" sample directory. A quick test can be made using the samples
+in the "loopback" diectory. (Be sure to uncomment the appropriate line to create
+additional loopback interfaces in loopback/START_KS.)
+
+To setup the key server, copy the "gdoi_ks.conf" file and change the IP
+addresses in the following lines:
+
+	Listen-on=              <key server IP addr>
+	
+	<member IP addr>=       GDOI-group-member-1
+
+	[GDOI-group-member-1]
+	Local-address=          <key server IP addr>
+	Address=                <member IP addr>
+
+(You can ignore the configuration lines for GDOI-group-member-2 and
+GDOI-group-member-3 until you're ready to test with those systems.)
+
+That's it! The rest of the policy defines the IKE Phase 1 policy, and one
+group which contains two IPSec SAs. You can leave those as is.
+
+D.2  Group Member Setup
+
+Edit gdoi_client1.conf and change the IP addresses in these configuration 
+statements:
+
+	Listen-on=              <member IP addr>
+	
+	<key server IP addr>=   GDOI-key-server
+
+	[GDOI-key-server]
+	Local-address=          <member IP addr>
+	Address=                <key server IP addr>
+
+E. Using the sample configuration
+
+Start the test by completing the following steps:
+
+E.1. On the key server, become "root". Be sure the gdoi_gcks.conf file is
+owned by root and has a mode of 600. Then start isakmpd as follows:
+
+	# ./START_KS
+
+This prepares the key server to accept requests from GDOI group members.
+You will see some debug messages.
+
+E.2. On the group member, become "root". Be sure the gdoi_client1.conf file
+is owned by root and has a mode of 600. Then start isakmpd as follows:
+	
+	# ./START_CLIENT1
+
+This causes the group member to initiate a GDOI exchange to the key server.
+You will see some debug messages.
+
+If you wish to load SAs into the kernel, remove the "-n" flag from the call 
+to isakmpd in START_CLIENT1.
+
+E.3. The exchange is successful if you see the following string near the end
+of the debugging statements on both systems: DONE WITH PHASE 2!!!
+
+You can compare your output to two sample output scripts in the "three-clients"
+directory.
+
+E.4. If you are on OpenBSD systems, you can check if the SAs were loaded into
+the kernel with this command:
+
+	# cat /kern/ipsec
+
+and you can manually delete the SAs with this command:
+
+	# ipsecadm flush
+
+On other systems, use the setkey command to view SAs:
+
+	# setkey -D; setkey -D -P
+
+And you can manually delete the SAs with the -F option:
+
+	# setkey -F; setkey -F -P
+
+E.5. More debugging
+
+The sample scripts may not show all of the debugging statements possible. More
+debugging can be shown by increasing the number <nn> on the -DA=<nn> flag. The
+maximum amount of debugging can be gotten with -DA=99.
+
+F. IKE Phase 1 Configuration Statements.
+
+The following examples are taken from the accompanying sample configurations.
+
+F.1.  In IKE Phase 1, define the DOI to be "GROUP".  This must be done on both
+the key server and the group member.
+
+EXAMPLE
+-------
+[Default-main-mode]
+DOI=                    GROUP
+EXCHANGE_TYPE=          ID_PROT
+Transforms=             3DES-SHA
+
+F.2. For the GDOI exchange, define a Group-ID which is an IKE Phase 2 identity 
+type. Only KEY_ID is supported at the moment.
+
+For more information on the IKE Phase 1 configuration see isakmpd.conf.5.
+
+G. GDOI Configuration Statements.
+
+To run the GDOI functionality, the following configuration is needed in the
+configuration files. These examples are taken from the accompanying sample 
+configurations.
+
+For more information, see the gdoid.conf(5) manual page included in this
+distribution. Other example configurations can be found in the samples 
+directory.
+
+G.1 Key Server
+
+The key server stores the crypto policy and keys for a group. In this
+reference implementation all keys and policy are static. Dynamic changing of 
+keys is not available.
+
+The key server must define a security policy for the group. EXAMPLE 1 shows the
+base policy definition to define group "1234".  It defines the peer
+(GDOI-group-member) and exact group policy (Default-group-mode) by
+reference. 
+
+EXAMPLE 1
+---------
+[IPsec-group-policy]
+Phase=                  2
+ISAKMP-peer=            GDOI-group-member
+Configuration=          Default-group-mode
+Group-ID=               Group-1
+
+[Group-1]
+ID-type=                KEY_ID
+Key-value=              1234
+
+The actual policy for Default-group-mode is shown in EXAMPLE 2. It defines the
+Exchange to be a PULL_MODE (which is exchange number 32, see RFC 3547).
+It also lists two Traffic Encryption Key policy groups to be part of this
+group. (If this were keying a real application, perhaps one TEK would be 
+the audio stream and one the video stream).
+
+EXAMPLE 2
+---------
+[Default-group-mode]
+DOI=                    GROUP
+EXCHANGE_TYPE=          PULL_MODE
+SA-TEKS=                GROUP1-TEK1, GROUP1-TEK2
+
+Finally, policy must be specified for each TEK. EXAMPLE 3 shows the policy for
+GROUP1-TEK1. This defines a subset of the ESP policy information required.
+
+EXAMPLE 3
+---------
+[GROUP1-TEK1]
+Crypto-protocol=	PROTO_IPSEC_ESP
+Src-ID=               	Group-tek1-src
+Dst-ID=              	Group-tek1-dst
+TEK_Suite=		GDOI-ESP-3DES-SHA-SUITE
+
+[Group-tek1-src]
+ID-type=                IPV4_ADDR
+Address=                172.19.193.37
+Port=			1024
+
+[Group-tek1-dst]
+ID-type=                IPV4_ADDR
+Address=                239.192.1.1
+Port=			1024
+
+G.2 Group Member
+
+On the group member side, the following configuration needs to be setup:
+
+First, a policy must be defined based on the group name as shown in EXAMPLE 4.
+This special naming allows the GDOI group member to find the appropriate IKE
+Phase 1 policy when the crypto system gives it a group number.
+
+EXAMPLE 4
+---------
+[Group-1234]
+Phase=                  2
+ISAKMP-peer=            ISAKMP-peer-gcks
+Configuration=          Default-group-mode
+Group-ID=               Group-1
+
+[Group-1]
+ID-type=                KEY_ID
+Key-value=              1234
+
+The policy for Default-group-mode is shown in EXAMPLE 5.
+
+EXAMPLE 5
+---------
+[Default-group-mode]
+DOI=                    GROUP
+EXCHANGE_TYPE=          PULL_MODE
+Suites=                 GM-ESP
+
+H. Hints
+
+Here are some things to keep in mind using this package.
+
+1. The configuration (*.conf) files that you use MUST be owned by root and 
+   have a mode of 600. If not, isakmpd will quickly abort. The configuration 
+   files included in the samples directory may not be set correctly -- that
+   depends on how you extracted the files, 
+
+2. If the IKE Phase 1 connections don't seem to be working, restart both 
+   isakmpd daemons and try again. That usually eliminates any confusion 
+   between them.
+
+3. A report of the current running gdoid state can be gotten by sending a
+SIGUSR1 signal to gdoid. E.g.,
+	kill -SIGUSR1 <gdoid-pid>
+
+I. Generating and using RSA Public Keys with OpenSSL
+
+To create an RSA keypair to use with the rekey messages, follow the following
+steps.
+
+1. Generate a keypair of at least 1024 bits.
+
+     openssl genrsa 1024 > rsakeys.pem
+
+2. The keys are generated in PEM format, and GDOI would like them to be in
+   DER format, so they must be converted
+
+     openssl rsa -in rsakeys.pem -outform DER -out rsakeys.der
+
+   NOTE: The keys are not in a displayable format.
+
+J. Acknowledgments
+
+Thanks to the following individuals for contributing to gdoid:
+
+Sebastien.Josset at space dot alcatel dot fr contributed code which enabled 
+gdoid to support AES as an IPsec transform, as well as the new OpenBSD PF_KEY 
+extensions.
+
+nico_kth at hotmail dot com provided modifications to the pf_key code, which 
+enabled pushing of SAD and SPD table entries into a Linux 2.6 kernel. This 
+gave gdoid the ablity of supportng IPsec on Linux, whereas previously Linux 
+could only be used as a key server.
+
+reet79 at ggs.ch provided code that caused gdoid to clean up the SAs and SPD
+entries it installed before exiting. He also provided code that allows 
+X.509 certificates to reside on an XFS file system.
+
+K. Known Bugs
+
+1. Configuring IPsec tunnel mode SAs actually end up as transport mode SAs.
+
+2. ECDSA has not been tested. Enabling #define USE_EC is sure to fail!

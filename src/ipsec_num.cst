@@ -1,0 +1,342 @@
+# $Id: ipsec_num.cst,v 1.7.2.3 2011/12/12 20:43:48 bew Exp $
+# $Source: /nfs/cscbz/gdoi/gdoicvs/gdoi/src/ipsec_num.cst,v $
+
+#	$OpenBSD: ipsec_num.cst,v 1.7 2000/10/16 23:27:55 niklas Exp $
+#	$EOM: ipsec_num.cst,v 1.5 2000/10/13 17:56:52 angelos Exp $
+
+# 
+# The license applies to all software incorporated in the "Cisco GDOI reference
+# implementation" except for those portions incorporating third party software 
+# specifically identified as being licensed under separate license. 
+#  
+#  
+# The Cisco Systems Public Software License, Version 1.0 
+# Copyright (c) 2001-2011 Cisco Systems, Inc. All rights reserved.
+# Subject to the following terms and conditions, Cisco Systems, Inc., 
+# hereby grants you a worldwide, royalty-free, nonexclusive, license, 
+# subject to third party intellectual property claims, to create 
+# derivative works of the Licensed Code and to reproduce, display, 
+# perform, sublicense, distribute such Licensed Code and derivative works. 
+# All rights not expressly granted herein are reserved. 
+# 1.      Redistributions of source code must retain the above 
+# copyright notice, this list of conditions and the following 
+# disclaimer.
+# 2.      Redistributions in binary form must reproduce the above 
+# copyright notice, this list of conditions and the following 
+# disclaimer in the documentation and/or other materials 
+# provided with the distribution.  
+# 3.      The names Cisco and "Cisco GDOI reference implementation" must not 
+# be used to endorse or promote products derived from this software without 
+# prior written permission. For written permission, please contact 
+# opensource@cisco.com.
+# 4.      Products derived from this software may not be called 
+# "Cisco" or "Cisco GDOI reference implementation", nor may "Cisco" or 
+# "Cisco GDOI reference implementation" appear in 
+# their name, without prior written permission of Cisco Systems, Inc.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED 
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+# PURPOSE, TITLE AND NON-INFRINGEMENT ARE DISCLAIMED. IN NO EVENT 
+# SHALL CISCO SYSTEMS, INC. OR ITS CONTRIBUTORS BE LIABLE FOR ANY 
+# INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR 
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF 
+# THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF 
+# SUCH DAMAGE. THIS LIMITATION OF LIABILITY SHALL NOT APPLY TO 
+# LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM SUCH 
+# PARTY'S NEGLIGENCE TO THE EXTENT APPLICABLE LAW PROHIBITS SUCH 
+# LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR 
+# LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THAT 
+# EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU. FURTHER, YOU 
+# AGREE THAT IN NO EVENT WILL CISCO'S LIABILITY UNDER OR RELATED TO 
+# THIS AGREEMENT EXCEED AMOUNT FIVE THOUSAND DOLLARS (US) 
+# (US$5,000). 
+#  
+# ====================================================================
+# This software consists of voluntary contributions made by Cisco Systems, 
+# Inc. and many individuals on behalf of Cisco Systems, Inc. For more 
+# information on Cisco Systems, Inc., please see <http://www.cisco.com/>.
+#
+
+#
+# Copyright (c) 1998 Niklas Hallqvist.  All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. All advertising materials mentioning features or use of this software
+#    must display the following acknowledgement:
+#	This product includes software developed by Ericsson Radio Systems.
+# 4. The name of the author may not be used to endorse or promote products
+#    derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+# IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+# NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+# THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+#
+# This code was written under funding by Ericsson Radio Systems.
+#
+
+# IPSEC DOI Identifier.
+IPSEC_DOI
+  IPSEC 1
+.
+
+# IPSEC SA attributes
+IPSEC_ATTR
+  SA_LIFE_TYPE				1
+  SA_LIFE_DURATION			2
+  GROUP_DESCRIPTION			3
+  ENCAPSULATION_MODE			4
+  AUTHENTICATION_ALGORITHM		5
+  KEY_LENGTH				6
+  KEY_ROUNDS				7
+  COMPRESS_DICTIONARY_SIZE		8
+  COMPRESS_PRIVATE_ALGORITHM		9
+  ECN_TUNNEL				10
+  EXTENDED_SEQ_NUMBER			11
+  AUTHENTICATION_KEY_LENGTH		12
+  SIGNATURE_ENCODING			13
+  ADDRESS_PRESERVATION			14
+  SA_DIRECTION				15
+.
+
+# IPSEC SA duration.
+IPSEC_DURATION
+  SECONDS				1
+  KILOBYTES				2
+.
+
+# IPSEC encapsulation mode.
+IPSEC_ENCAP
+  TUNNEL				1
+  TRANSPORT				2
+.
+
+# IPSEC authentication algorithm.
+IPSEC_AUTH
+  NONE					0
+  HMAC_MD5				1
+  HMAC_SHA				2
+  DES_MAC				3
+  KPDK					4
+  HMAC_SHA2_256                         5
+  HMAC_SHA2_384                         6
+  HMAC_SHA2_512                         7
+  HMAC_RIPEMD                           8
+.
+
+# IPSEC address preservation
+ 
+IPSEC_ADDR_PRES
+  NONE					1
+  SOURCE_ONLY				2
+  DESTINATION_ONLY			3
+  SOURCE_AND_DEST			4
+.
+
+IPSEC_SA_DIRECTION
+  SENDER_ONLY				1
+  RECEIVER_ONLY				2
+  SYMMETRIC				3
+.
+
+# IPSEC ID types.
+IPSEC_ID
+  IPV4_ADDR				1
+  FQDN					2
+  USER_FQDN				3
+  IPV4_ADDR_SUBNET			4
+  IPV6_ADDR				5
+  IPV6_ADDR_SUBNET			6
+  IPV4_RANGE				7
+  IPV6_RANGE				8
+  DER_ASN1_DN				9
+  DER_ASN1_GN				10
+  KEY_ID				11
+  IEC90_5				161
+.
+
+# IKE SA attributes
+IKE_ATTR
+  ENCRYPTION_ALGORITHM			1	ike_encrypt_cst
+  HASH_ALGORITHM			2	ike_hash_cst
+  AUTHENTICATION_METHOD			3	ike_auth_cst
+  GROUP_DESCRIPTION			4	ike_group_desc_cst
+  GROUP_TYPE				5	ike_group_cst
+  GROUP_PRIME				6
+  GROUP_GENERATOR_1			7
+  GROUP_GENERATOR_2			8
+  GROUP_CURVE_A				9
+  GROUP_CURVE_B				10
+  LIFE_TYPE				11	ike_duration_cst
+  LIFE_DURATION				12
+  PRF					13	ike_prf_cst
+  KEY_LENGTH				14
+  FIELD_SIZE				15
+  GROUP_ORDER				16
+.
+
+# XXX Fill in reserved ranges for the attributes below.
+
+# IKE encryption algorithm.
+IKE_ENCRYPT
+  DES_CBC				1
+  IDEA_CBC				2
+  BLOWFISH_CBC				3
+  RC5_R16_B64_CBC			4
+  3DES_CBC				5
+  CAST_CBC				6
+  AES_CBC                               7
+.
+
+# IKE hash algorithm.
+IKE_HASH
+  MD5					1
+  SHA					2
+  TIGER					3
+  SHA2_256                              4
+  SHA2_384                              5
+  SHA2_512                              6
+.
+
+# IKE authentication method.
+IKE_AUTH
+  PRE_SHARED				1
+  DSS					2
+  RSA_SIG				3
+  RSA_ENC				4
+  RSA_ENC_REV				5
+.
+
+# IKE group description.
+IKE_GROUP_DESC
+  MODP_768				1
+  MODP_1024				2
+  EC2N_155				3
+  EC2N_185				4
+  MODP_1536				5
+.
+
+# IKE Group type.
+IKE_GROUP
+  MODP					1
+  ECP					2
+  EC2N					3
+.
+
+# IKE SA duration.
+IKE_DURATION
+  SECONDS				1
+  KILOBYTES				2
+.
+
+# IKE Pseudo random function.  No defined so far.
+IKE_PRF
+.
+
+# IPSEC Situation bits.
+IPSEC_SIT
+  IDENTITY_ONLY				1
+  SECRECY				2
+  INTEGRITY				4
+.
+
+# IPSEC security protocol IDs.
+# NOTE: Protocol ids of >= 100 are not registered
+#       values, but are assigned here only for the
+#       purpose of carrying state about non-IPSec
+#       protocols within gdoid code modules.
+IPSEC_PROTO
+  IPSEC_AH				2
+  IPSEC_ESP				3
+  IPCOMP				4
+  SRTP					100
+  IEC90_5				101
+.
+
+# IPSEC ISAKMP transform IDs.
+IPSEC_TRANSFORM
+  KEY_IKE				1
+.
+
+# IPSEC AH transform IDs.
+IPSEC_AH
+  MD5					2
+  SHA					3
+  DES					4
+  SHA2_256                              5
+  SHA2_384                              6
+  SHA2_512                              7
+  RIPEMD                                8
+  AES_XCBC_MAC				9
+  RSA					10
+  AES_128_GMAC				11
+  AES_192_GMAC				12
+  AES_256_GMAC				13
+.
+
+# IPSEC ESP transform IDs.
+IPSEC_ESP
+  DES_IV64				1
+  DES					2
+  3DES					3
+  RC5					4
+  IDEA					5
+  CAST					6
+  BLOWFISH				7
+  3IDEA					8
+  DES_IV32				9
+  RC4					10
+  NULL					11
+  AES_CBC                               12
+  AES_CTR				13
+  AES_CCM_8				14
+  AES_CCM_12				15
+  AES_CCM_16				16
+  Unassigned				17
+  AES_GCM_8				18
+  AES_GCM_12				19
+  AES_GCM_16				20
+  AES_SEED_CBC				21
+  AES_CAMELLIA				22
+  AES_NULL_AUTH_AES_GMAC		23
+.
+
+# IPSEC IPCOMP transform IDs
+IPSEC_IPCOMP
+  OUI					1
+  DEFLATE				2
+  LZS					3
+  V42BIS				4
+.
+
+# IPSEC notify message types.
+IPSEC_NOTIFY
+  RESPONDER_LIFETIME			24576
+  REPLAY_STATUS				24577
+  INITIAL_CONTACT			24578
+.
+
+# IKE exchange types.
+IKE_EXCH
+  QUICK_MODE_OR_GDOI_REGISTRATION	32
+  NEW_GROUP_MODE_OR_GDOI_REKEY		33
+.
